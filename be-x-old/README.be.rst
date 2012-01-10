@@ -19,4 +19,5 @@ http://pravapis.info/books/pravapis2005.html
 VCS - СКВ (сыстэма кіраваньня вэрсіямі)
 commit - каміт
 fetch - сьцягваньне
+repository - сховішча
 

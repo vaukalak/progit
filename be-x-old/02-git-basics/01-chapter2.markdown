@@ -1,6 +1,6 @@
-# Git Basics #
+# Падставы Git #
 
-If you can read only one chapter to get going with Git, this is it. This chapter covers every basic command you need to do the vast majority of the things you’ll eventually spend your time doing with Git. By the end of the chapter, you should be able to configure and initialize a repository, begin and stop tracking files, and stage and commit changes. We’ll also show you how to set up Git to ignore certain files and file patterns, how to undo mistakes quickly and easily, how to browse the history of your project and view changes between commits, and how to push and pull from remote repositories.
+Калі вы жадаеце пачаць працаваць зь Git прачытаўшы толькі адну главу, то зараз вы чытаеце тое, што вам патрэбна. Гэтая глава зьмяшчае асноўныя каманды якія вам спатрэбяцца паводле працы зь Git. На прыканцы, вы будзеце мець магчымасьць наладжваць і ініцыялізаваць сховішча, пачынаць і спыняць адсочваць файлы, рыхтаваць і захоўваць зьмены. Таксама мы растлумачым як ігнараваць некаторыя файлы, хутка выпраўляць памылкі, сачыць за гісторыяй вашага праекту, адлюстроўваць зьмены паміж камітамі і дадаваць і сьцягваць зьмены з аддаленага сховішча.
 
 ## Getting a Git Repository ##
 

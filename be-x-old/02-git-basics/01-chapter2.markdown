@@ -2,64 +2,64 @@
 
 Калі вы жадаеце пачаць працаваць зь Git прачытаўшы толькі адну главу, то зараз вы чытаеце тое, што вам патрэбна. Гэтая глава зьмяшчае асноўныя каманды якія вам спатрэбяцца паводле працы зь Git. На прыканцы, вы будзеце мець магчымасьць наладжваць і ініцыялізаваць сховішча, пачынаць і спыняць адсочваць файлы, рыхтаваць і захоўваць зьмены. Таксама мы растлумачым як ігнараваць некаторыя файлы, хутка выпраўляць памылкі, сачыць за гісторыяй вашага праекту, адлюстроўваць зьмены паміж камітамі і дадаваць і сьцягваць зьмены з аддаленага сховішча.
 
-## Getting a Git Repository ##
+## Стварэньне сховішча Git ##
 
-You can get a Git project using two main approaches. The first takes an existing project or directory and imports it into Git. The second clones an existing Git repository from another server.
+Існуе два падходы стварэньня сховішча Git. Першы — гэта імпартаваць існы праект ці тэчку ў Git. Другі — кланаваць існае сховішча Git зь іншага сэрвэра.
 
-### Initializing a Repository in an Existing Directory ###
+### Ініцыялізацыя сховішча ў існай дырэкторыі ###
 
-If you’re starting to track an existing project in Git, you need to go to the project’s directory and type
+Каб пачаць адсочваць існы праект з дапамогай Git, вам спачатку неабходна перайсьці ў тэчку праекта і ўвесьці каманду:
 
 	$ git init
 
-This creates a new subdirectory named `.git` that contains all of your necessary repository files — a Git repository skeleton. At this point, nothing in your project is tracked yet. (See *Chapter 9* for more information about exactly what files are contained in the `.git` directory you just created.)
+Яна створыць новую паддырэкторыю `.git`, якая стрымлівае ўсе неабходныя файлы сховішча — шкілет сховішча Git. На дадзены момант яшчэ ніводны з файлаў праекту не адсочваецца. (Больш дакладную інфармацыю якія менавіта файлы захоўваюцца ў толькі што створанай дырэкторыі `.git` глядзіце ў *Главе 9*).
 
-If you want to start version-controlling existing files (as opposed to an empty directory), you should probably begin tracking those files and do an initial commit. You can accomplish that with a few `git add` commands that specify the files you want to track, followed by a commit:
+Калі вы жадаеце пачаць кантраляваць існыя файлы праекту (за выняткам пустых тэчак), вы мусіце праіндэксаваць іх і зафіксаваць першы каміт. Вы можаце зрабіць гэта некалькімі камандамі `git add`, якія праіндэксуюць неабходныя файлы, і затым `git commit`:
 
 	$ git add *.c
 	$ git add README
 	$ git commit -m 'initial project version'
 
-We’ll go over what these commands do in just a minute. At this point, you have a Git repository with tracked files and an initial commit.
+Мы разьбяром што робяць гэтыя каманды крыху пазьней. А зараз вы маеце сховішча Git з даданымі файламі і пачатковым камітам.
 
-### Cloning an Existing Repository ###
+### Кланаваньне існага сховішча ###
 
-If you want to get a copy of an existing Git repository — for example, a project you’d like to contribute to — the command you need is `git clone`. If you’re familiar with other VCS systems such as Subversion, you’ll notice that the command is `clone` and not `checkout`. This is an important distinction — Git receives a copy of nearly all data that the server has. Every version of every file for the history of the project is pulled down when you run `git clone`. In fact, if your server disk gets corrupted, you can use any of the clones on any client to set the server back to the state it was in when it was cloned (you may lose some server-side hooks and such, but all the versioned data would be there — see *Chapter 4* for more details).
+Калі вы жадаеца атрымаць копію існага сховішча Git, напрыклад праекта, які вы хочаце падтрымаць, то вам спатрэбіцца каманда `git clone`. Калі вам вядомы іншыя сыстэмы кіраваньня вэрсіямі, напрыклад Subversion, то вы заўважыце, што каманда называецца `clone`, а не `checkout`. Гэта важлівае адрозьненьне — Git атрымлівае паўнавартасную копію даньняў з сэрвэра. Кожная вэрсія кожнага файлу сьцягваецца ў ваша сховішча, калі выконваецца каманда `git clone`. Фактычна, калі ваш сэрвэрны дыск зламаецца, то з дапамогай любога лякальнага сховішча любога кліента можна вярнуць сэрвэр у стан, ў якім быў зроблены клон дадзенага сховішча (вы, магчыма, згубіце частку сэрвэрных хукаў, але ўсе даньні, якія знаходзяцца пад вэрсійным кантролем, захаваюцца, падрабязьней гл. *Главу 4*).
 
-You clone a repository with `git clone [url]`. For example, if you want to clone the Ruby Git library called Grit, you can do so like this:
+Зклануйце сховішча загадам `git clone [url]`. Напрыклад, калі вы жадаеце атрымаць клон бібліятэкі Ruby Git - Grit, то зрабіце эта наступным чынам:
 
 	$ git clone git://github.com/schacon/grit.git
 
-That creates a directory named `grit`, initializes a `.git` directory inside it, pulls down all the data for that repository, and checks out a working copy of the latest version. If you go into the new `grit` directory, you’ll see the project files in there, ready to be worked on or used. If you want to clone the repository into a directory named something other than grit, you can specify that as the next command-line option:
+Гэта створыць дырэкторыя `grit`, ініцыялізуе паддырэкторыю `.git`, сьцягне ўсе даньні і створыць працоўную копію праекта апошняй вэрсіі. Калі зойдзіце ў новую тэчку `grit`, вы пабачыце там файлы праекту зь якімі адразу можна працаваць. Калі жадаеце зрабіць клон у тэчке зь іншым імем, то трэба пазначыць яго ў загадным радку:
 
 	$ git clone git://github.com/schacon/grit.git mygrit
 
-That command does the same thing as the previous one, but the target directory is called `mygrit`.
+Гэтая каманда зробіць тое што й папярэдняя, але ў тэчке `mygrit`.
 
-Git has a number of different transfer protocols you can use. The previous example uses the `git://` protocol, but you may also see `http(s)://` or `user@server:/path.git`, which uses the SSH transfer protocol. *Chapter 4* will introduce all of the available options the server can set up to access your Git repository and the pros and cons of each.
+Git можа працаваць зь некалькімі транспартнымі пратаколамі. Папярэдні прыклад выкарыстоўваў пратакол `git://`. Таксама вы можаце пабачыць пратакол `http(s)://` і `user@server:/path.git`, які карыстаецца SSH пратаколам. *Глава 4* распавядзе пра ўсе даступныя опцыі сэрвэра для доступа да вашага Git-сховішча і прааналізуе плюсы і мінусы кожнага.
 
-## Recording Changes to the Repository ##
+## Запіс зьменаў у сховішча ##
 
-You have a bona fide Git repository and a checkout or working copy of the files for that project. You need to make some changes and commit snapshots of those changes into your repository each time the project reaches a state you want to record.
+Урэшце, вы маеце рэчаіснае Git сховішча і працоўную дырэкторыю з файламі праекту. Паводле працы вам будзе неабходна зьмяняць файлы і фіксаваць іх "здымкі" кожны раз, як праект будзе дасягаць патрэбнага вам стану.
 
-Remember that each file in your working directory can be in one of two states: *tracked* or *untracked*. *Tracked* files are files that were in the last snapshot; they can be *unmodified*, *modified*, or *staged*. *Untracked* files are everything else — any files in your working directory that were not in your last snapshot and are not in your staging area.  When you first clone a repository, all of your files will be tracked and unmodified because you just checked them out and haven’t edited anything.
+Запамятайце, кожны файл у вашай працоўнай тэчке можа знаходзіцца ў адным з двух станаў: *адсочваемы (tracked)* і *неадсочваемы (untracked)*. Адсочваемыя файлы — гэта файлы, якія былі захаваныя ў апошнім "здымке" праекту. Яны, у сваю чаргу, могуць быць *немадыфікаванымі*, *мадыфікаванымі* й *праіндэксаванымі*. *Неадсочваемыя* файлы — гэта ўсе астатнія файлы вашай працоўнай тэчкі. Іх няма ні ў апошніх "здымках" праекту, ні сярод праіндэксаваных файлаў. Калі вы першы раз клануеце сховішча, усе ягоныя файлы будуць адсочваемымі і немадыфікаванымі, бо вы толькі што зрабілі іх копію і не пасьпелі што-небудзь зьмяніць.
 
-As you edit files, Git sees them as modified, because you’ve changed them since your last commit. You *stage* these modified files and then commit all your staged changes, and the cycle repeats. This lifecycle is illustrated in Figure 2-1.
+Як толькі вы адрэдагавалі файлы, Git пабачыць іх як мадыфікаваныя, таму што яны адрозьніваюцца ад файлаў у апошнім каміце. Вы мусіце *праіндэксаваць* гэтыя мадыфікаваныя файлы і затым закаміціць усе вашыя праіндэксаваныя зьмены і гэтак далей, цыкл паўтараецца. Жыцьцёвы цыкл праілюстраваны на Дыяграме 2-1.
 
 Insert 18333fig0201.png
-Figure 2-1. The lifecycle of the status of your files.
+Дыяграма 2-1. Жыцьцёвы цыкл стану вашых файлаў.
 
-### Checking the Status of Your Files ###
+### Спраўджваньне стану вашых файлаў ###
 
-The main tool you use to determine which files are in which state is the `git status` command. If you run this command directly after a clone, you should see something like this:
+Галоўным інструмэнтам, якім вы будзеце карыстацца для вызначэньня стану праекту, зьяўляецца каманда `git status`. Калі вы выканаеце гэтую каманду адразу пасьля кланаваньня праету, то пабачыце прыкладна наступнае:
 
 	$ git status
 	# On branch master
 	nothing to commit (working directory clean)
 
-This means you have a clean working directory — in other words, there are no tracked and modified files. Git also doesn’t see any untracked files, or they would be listed here. Finally, the command tells you which branch you’re on. For now, that is always `master`, which is the default; you won’t worry about it here. The next chapter will go over branches and references in detail.
+Гэта значыць, вы маеце чыстую працоўную дырэкторыю — іншымі словамі, вы ня маеце адсочваемых мадыфікаваных файлаў. Git таксама ня бачыць неадсочваемых файлаў, інакш яны былі б пералічаны тут. Нарэшце, каманда кажа ў якой галіне вы знаходзіцеся. Зараз гэта `master`, якая зьяўляецца прадвызначанай; цяпер гэта нязначна. Наступная глава распавядзе пра галіны і спасылкі больш падрабязна.
 
-Let’s say you add a new file to your project, a simple README file. If the file didn’t exist before, and you run `git status`, you see your untracked file like so:
+Давайце паглядзім што будзе, калі вы дададзіце ў праект просты README файл. Калі гэты файл не існаваў да гэтага момамну, і вы выканаеце `git status`, вы ўбачыце ваш неадсочваемы файл:
 
 	$ vim README
 	$ git status
@@ -70,7 +70,7 @@ Let’s say you add a new file to your project, a simple README file. If the fil
 	#	README
 	nothing added to commit but untracked files present (use "git add" to track)
 
-You can see that your new README file is untracked, because it’s under the “Untracked files” heading in your status output. Untracked basically means that Git sees a file you didn’t have in the previous snapshot (commit); Git won’t start including it in your commit snapshots until you explicitly tell it to do so. It does this so you don’t accidentally begin including generated binary files or other files that you did not mean to include. You do want to start including README, so let’s start tracking the file.
+Вы можаце пабачыць, што ваш новы README файл неадсочваецца, бо ён знаходзіцца пад загалоўкам “Untracked files” у вывадзе стану. Неадсочваемы азначае тое, што Git знайшоў файл, які адсутнічаў ў папярэднім "здымку" (каміце). Git ня будзе ўключаць яго ў ваш новы каміт, пакуль вы самі яму ня мовіце зрабіць гэта. Гэда абараняе вас ад дадаваньня ў праект аўтаматычна створаных файлаў і іншых, якія вы не жадаеце дадаваць. Калі вы сапраўды жадаеце дадаць гэты файл у праект, то ён мусіць стаць адсочваемым.
 
 ### Tracking New Files ###
 

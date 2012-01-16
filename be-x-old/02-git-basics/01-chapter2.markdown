@@ -148,39 +148,39 @@ Insert 18333fig0201.png
 	#	modified:   benchmarks.rb
 	#
 
-### Ignoring Files ###
+### Ігнараваньне файлаў ###
 
-Often, you’ll have a class of files that you don’t want Git to automatically add or even show you as being untracked. These are generally automatically generated files such as log files or files produced by your build system. In such cases, you can create a file listing patterns to match them named `.gitignore`.  Here is an example `.gitignore` file:
+Часта, ваш праект будзе мець шэраг файлаў, якія вы ня толькі не захаціце аўтаматычна дадаваць у сховішча, але й бачыць іх сярод неадсочваемых. Гэта могуць быць аўтаматычна спароджаныя файлы, як log-файлы ці файлы створаныя вашай сыстэмай зборкі. У гэтым выпадку, вы можаце стварыць файл `.gitignore`, які будзе стрымліваць сьпіс шаблёнаў ігнаруемых файлаў у вашым праекце. Вось прыклад такога файла:
 
 	$ cat .gitignore
 	*.[oa]
 	*~
 
-The first line tells Git to ignore any files ending in `.o` or `.a` — *object* and *archive* files that may be the product of building your code. The second line tells Git to ignore all files that end with a tilde (`~`), which is used by many text editors such as Emacs to mark temporary files. You may also include a `log`, `tmp`, or `pid` directory; automatically generated documentation; and so on. Setting up a `.gitignore` file before you get going is generally a good idea so you don’t accidentally commit files that you really don’t want in your Git repository.
+Першы радок кажа Git'у ігнараваць усе файлы, якія сканчаюцца на `.o` ці `.a` — *аб'ектныя* і *архіўныя (бібліятэкі)* файлы, якія генэруюцца паводле зборкі вашага праекту. Другі радок кажа ігнараваць усе файлы, якія сканчаюцца на сымбаль `~`, які пазначае часовыя файлы, якія ствараюць мноства тэкставых рэдактараў кшталту Emacs. Вы таксама можаце ўключыць дырэкторыі `log`, `tmp` і `pid`, аўтаматычна ствараемую дакумэнтацыю і г.д. Дадаць файлы `.gitignore` у праект да пачатку асноўнай работы — вельмі добрая ідэя, бо такім чынам вы гарантуеце, што не закаміціце файлы, якія вы не жадаеце дадаваць у ваша Git сховішча.
 
-The rules for the patterns you can put in the `.gitignore` file are as follows:
+Далей пералічаны правілы напісаньня шаблёнаў у файлах `.gitignore`:
 
-*	Blank lines or lines starting with `#` are ignored.
-*	Standard glob patterns work.
-*	You can end patterns with a forward slash (`/`) to specify a directory.
-*	You can negate a pattern by starting it with an exclamation point (`!`).
+*	Пустыя радкі й радкі, якія пачынаюцца з `#`, ігнаруюцца.
+*	Можна выкарыстоўваць стандартныя glob шаблёны.
+*	Можна завяршаць шаблён слэшам `/`, каб пазначыць дырэкторыю.
+*	Можна інвэртаваць шаблён, калі прапісаць ў пачатку клічнік (`!`).
 
-Glob patterns are like simplified regular expressions that shells use. An asterisk (`*`) matches zero or more characters; `[abc]` matches any character inside the brackets (in this case `a`, `b`, or `c`); a question mark (`?`) matches a single character; and brackets enclosing characters separated by a hyphen(`[0-9]`) matches any character in the range (in this case 0 through 9) .
+Glob шаблёны — гэта аналяг сталых выразаў, якія выкарыстоўваюць абалонкі. Зорачка (`*`) адпавядае любой колькасьці любых сымбаляў; `[abc]` — любому сымбалю, які знаходзіцца ў дужках (у дадзеным выпадку `a`, `b` ці `c`); пытальнік (`?`) — любому адзінаму сымбалю; дужкі, якія агароджваюць два сымбаля падзеленыя злучком (`[0-9]`), — любому сымбалю з гэтага дыяпазону.
 
-Here is another example `.gitignore` file:
+Вось яшчэ некалькі прыкладаў радкоў з `.gitignore` файла:
 
-	# a comment - this is ignored
-	*.a       # no .a files
-	!lib.a    # but do track lib.a, even though you're ignoring .a files above
-	/TODO     # only ignore the root TODO file, not subdir/TODO
-	build/    # ignore all files in the build/ directory
-	doc/*.txt # ignore doc/notes.txt, but not doc/server/arch.txt
+	# камэнтар будзе праігнараваны
+	*.a       # ігнараваць `.a`-файлы
+	!lib.a    # за выняткам файла lib.a
+	/TODO     # ігнараваць файл TODO толькі ў каранёвай тэчцы
+	build/    # ігнараваць усе файлы ў дырэкторыі build/
+	doc/*.txt # ігнараваць файлы кшталту doc/notes.txt, але ня doc/server/arch.txt
 
-### Viewing Your Staged and Unstaged Changes ###
+### Прагляд праіндэксаваных і непраіндэксаваных зьменаў ###
 
-If the `git status` command is too vague for you — you want to know exactly what you changed, not just which files were changed — you can use the `git diff` command. We’ll cover `git diff` in more detail later; but you’ll probably use it most often to answer these two questions: What have you changed but not yet staged? And what have you staged that you are about to commit? Although `git status` answers those questions very generally, `git diff` shows you the exact lines added and removed — the patch, as it were.
+Калі загад `git status` вельмі недасканалы для вас, і вам неабходна ведаць якія менавіта зьмены адбыліся, а ня толькі ў якіх файлах яны адбыліся, то вы павінны скарыстацца камандай `git diff`. Больш падрабязна пра `git diff` мы распавядзём пазьней, а зараз хутчэй за ўсё вы будзеце выкарыстоўваць яе для атрыманьня адказу на два пытаньні: Што вы зьмянілі, але яшчэ не праіндэксавалі? і Што вы праіндэксавалі і зьбіраецеся зафіксаваць? Калі `git status` адказвае на гэтыя пытаньні вельмі абагульнена, то `git diff` адлюстроўвае вам паасобна кожны дададзены й выдалены радок — латку (patch), як яна ёсьць.
 
-Let’s say you edit and stage the `README` file again and then edit the `benchmarks.rb` file without staging it. If you run your `status` command, you once again see something like this:
+Уявім, вы зноў зьмянілі і праіндэксавалі файл `README`, а затым зьмянілі файл `benchmarks.rb`. Калі вы запусьціце `git status`, вы зноўку пабачыце нешта падобнае на гэта:
 
 	$ git status
 	# On branch master
@@ -195,7 +195,7 @@ Let’s say you edit and stage the `README` file again and then edit the `benchm
 	#	modified:   benchmarks.rb
 	#
 
-To see what you’ve changed but not yet staged, type `git diff` with no other arguments:
+Каб убачыць што менавіта было зьменена і не праіндэксаванае, надрукуйце `git diff` без аргумэнтаў:
 
 	$ git diff
 	diff --git a/benchmarks.rb b/benchmarks.rb
@@ -214,9 +214,9 @@ To see what you’ve changed but not yet staged, type `git diff` with no other a
 	           log = git.commits('master', 15)
 	           log.size
 
-That command compares what is in your working directory with what is in your staging area. The result tells you the changes you’ve made that you haven’t yet staged.
+Гэтая каманда параўноўвае зьмест вашай працоўнай дырэкторыі зь зьместам прасторы індэксацыі. Вынік адлюстроўвае непраіндэксаваныя зьмены.
 
-If you want to see what you’ve staged that will go into your next commit, you can use `git diff --cached`. (In Git versions 1.6.1 and later, you can also use `git diff --staged`, which may be easier to remember.) This command compares your staged changes to your last commit:
+Калі вы жадаеце ўбачыць праіндэксаваныя зьмены, якія будуць дададзеныя ў наступным каміце, вы павінны выканаць `git diff --cached` (у Git 1.6.1 і вышэй вы можаце выканаць загад `git diff --staged`, які прасьцейшы для запамінаньня). Гэтая каманда параўноўвае праіндэксаваныя даньні і апошні каміт:
 
 	$ git diff --cached
 	diff --git a/README b/README
@@ -231,9 +231,9 @@ If you want to see what you’ve staged that will go into your next commit, you 
 	+
 	+Grit is a Ruby library for extracting information from a Git repository
 
-It’s important to note that `git diff` by itself doesn’t show all changes made since your last commit — only changes that are still unstaged. This can be confusing, because if you’ve staged all of your changes, `git diff` will give you no output.
+Заўважце, што `git diff` сам не адлюструе ўсіх зьменаў зробленых вамі пасьля апошняга каміту — толькі зьмены, якія застаюцца непраіндэксаванымі. Гэта можа заблытаць, бо калі вы ўсё праіндэксавалі, `git diff` нічога не пакажа ў вывадзе.
 
-For another example, if you stage the `benchmarks.rb` file and then edit it, you can use `git diff` to see the changes in the file that are staged and the changes that are unstaged:
+Іншы прыклад. Вы праіндэксавалі файл `benchmarks.rb` і потым адрэдагавалі яго. Вы можаце выканаць `git diff`, каб убачыць праіндэксаваныя зьмены і зьмены непраіндэксаваныя:
 
 	$ git add benchmarks.rb
 	$ echo '# test line' >> benchmarks.rb
@@ -249,7 +249,7 @@ For another example, if you stage the `benchmarks.rb` file and then edit it, you
 	#	modified:   benchmarks.rb
 	#
 
-Now you can use `git diff` to see what is still unstaged
+Цяпер выканайце `git diff`, каб убачыць непраіндэксаваныя зьмены:
 
 	$ git diff
 	diff --git a/benchmarks.rb b/benchmarks.rb
@@ -262,7 +262,7 @@ Now you can use `git diff` to see what is still unstaged
 	 ##pp Grit::GitRuby.cache_client.stats
 	+# test line
 
-and `git diff --cached` to see what you’ve staged so far:
+і `git diff --cached` для праіндэксаваных:
 
 	$ git diff --cached
 	diff --git a/benchmarks.rb b/benchmarks.rb
@@ -281,16 +281,16 @@ and `git diff --cached` to see what you’ve staged so far:
 	          log = git.commits('master', 15)
 	          log.size
 
-### Committing Your Changes ###
+### Фіксацыя зьменаў ###
 
-Now that your staging area is set up the way you want it, you can commit your changes. Remember that anything that is still unstaged — any files you have created or modified that you haven’t run `git add` on since you edited them — won’t go into this commit. They will stay as modified files on your disk.
-In this case, the last time you ran `git status`, you saw that everything was staged, so you’re ready to commit your changes. The simplest way to commit is to type `git commit`:
+Цяпер, калі ваша прастора індэксацыя ўсталяваная, вы можаце закаміціць вашы зьмены. Запомніце, усё што засталося непраіндэксаваным — любыя файлы, якія вы стварылі ці мадыфікавалі пасьля запуску `git add` — ня будуць уключаныя ў каміт. Яны застануцца пазначанымі як мадыфікаваныя файлы на вашым дыску.
+У нашым выпадку, паводле апошняга запуску `git status`, вы бачылі што ўсе файлы былі праіндэксаваныя, таму вы падрыхтаваныя да прыманьня вашага каміту. Самы просты шлях зрабіць гэта — выканаць `git commit`:
 
 	$ git commit
 
-Doing so launches your editor of choice. (This is set by your shell’s `$EDITOR` environment variable — usually vim or emacs, although you can configure it with whatever you want using the `git config --global core.editor` command as you saw in *Chapter 1*).
+Дадзеная каманда запусьціць ваш тэкставы рэдактар (ён вызначаецца зьменнай асяродзьдзя `$EDITOR` — звычайна гэта vim ці emacs, але вы можаце ўсталяваць яго па свайму густу выкарыстаўшы каманду `git config --global core.editor`, як гэта апісана ў *Главе 1*).
 
-The editor displays the following text (this example is a Vim screen):
+Рэдактар адлюструе наступны тэкст (гэта прыклад зь Vim'а):
 
 	# Please enter the commit message for your changes. Lines starting
 	# with '#' will be ignored, and an empty message aborts the commit.
@@ -305,18 +305,18 @@ The editor displays the following text (this example is a Vim screen):
 	~
 	".git/COMMIT_EDITMSG" 10L, 283C
 
-You can see that the default commit message contains the latest output of the `git status` command commented out and one empty line on top. You can remove these comments and type your commit message, or you can leave them there to help you remember what you’re committing. (For an even more explicit reminder of what you’ve modified, you can pass the `-v` option to `git commit`. Doing so also puts the diff of your change in the editor so you can see exactly what you did.) When you exit the editor, Git creates your commit with that commit message (with the comments and diff stripped out).
+Вы бачыце, што прадвызначана каміт утрымлівае закамэнтаваны вывад каманды `git status` і адзін пусты радок зьверху. Можна выдаліць гэты камэнтар і напісаць сваё паведамленьне, ці пакінуць яго для ўзгадваньня дзе былі зроблены зьмены. Для яшчэ большай інфармацыі пра зьмены, вы можаце дадаць опцыю `-v` каманддзе `git commit`. У выніку ў камэнтарах будзе прысутнічаць вывад каманды `git diff`, і вы будзеце дакладна ведаць што вы зрабілі. Калі вы пакінеце рэдактар, Git створыць каміт з вашым паведамленьнем (камэнтар будзе адсутнічаць).
 
-Alternatively, you can type your commit message inline with the `commit` command by specifying it after a `-m` flag, like this:
+Як варыянт, вы можаце надрукаваць ваша паведамленьне ў загадным радку каманды `commit` пасьля опцыі `-m`:
 
 	$ git commit -m "Story 182: Fix benchmarks for speed"
 	[master]: created 463dc4f: "Fix benchmarks for speed"
 	 2 files changed, 3 insertions(+), 0 deletions(-)
 	 create mode 100644 README
 
-Now you’ve created your first commit! You can see that the commit has given you some output about itself: which branch you committed to (`master`), what SHA-1 checksum the commit has (`463dc4f`), how many files were changed, and statistics about lines added and removed in the commit.
+Вось цяпер вы стварылі свой першы каміт! Вывад каманды дае неабходную інфармацыю пра яго: галіну, ў якой ён захаваны (`master`); кантрольную суму SHA-1 (`463dc4f`); колькасьць зьмененых файлаў; статыстыку дадаваньня й выдаленьня радкоў.
 
-Remember that the commit records the snapshot you set up in your staging area. Anything you didn’t stage is still sitting there modified; you can do another commit to add it to your history. Every time you perform a commit, you’re recording a snapshot of your project that you can revert to or compare to later.
+Запомніце, што каміт запісвае здымак стану праекту, які вы захавалі ў прасторы індэксацыі. Усё што не было праіндэксавана так і застанецца ў мадыфікаваным стане. Вы можаце захаваць усё астатняе ў іншым каміце. Кожны раз, калі вы захоўваеце каміт, вы робіце здымак стану праекту, да якога вы зможаце вярнуцца пазьней, ці параўноўваць зь ім бягучы стан праекту.
 
 ### Skipping the Staging Area ###
 

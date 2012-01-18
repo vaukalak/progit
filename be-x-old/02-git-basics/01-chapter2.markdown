@@ -318,9 +318,9 @@ Glob шаблёны — гэта аналяг сталых выразаў, як�
 
 Запомніце, што каміт запісвае здымак стану праекту, які вы захавалі ў прасторы індэксацыі. Усё што не было праіндэксавана так і застанецца ў мадыфікаваным стане. Вы можаце захаваць усё астатняе ў іншым каміце. Кожны раз, калі вы захоўваеце каміт, вы робіце здымак стану праекту, да якога вы зможаце вярнуцца пазьней, ці параўноўваць зь ім бягучы стан праекту.
 
-### Skipping the Staging Area ###
+### Мінаем прастору індэксацыі ###
 
-Although it can be amazingly useful for crafting commits exactly how you want them, the staging area is sometimes a bit more complex than you need in your workflow. If you want to skip the staging area, Git provides a simple shortcut. Providing the `-a` option to the `git commit` command makes Git automatically stage every file that is already tracked before doing the commit, letting you skip the `git add` part:
+Ня гледзячы на тое, што індэксацыя можа быць надзвычай карысна для стварэньня камітаў, але часам яна дадае больш складанасьцей у працэс распрацоўкі. Калі вы жадаеце абмінуць сыстэму індэксацыі, то Git прапануе вам просты спосаб зрабіць гэта. Дадаўшы опцыю `-a` да каманды `git commit`, вы загадваеце Git'у аўтаматычна праіндэксаваць усе адсочваемыя файлы й закаміціць іх. Давайце зробім каміт безь індэксацыі:
 
 	$ git status
 	# On branch master
@@ -333,13 +333,13 @@ Although it can be amazingly useful for crafting commits exactly how you want th
 	[master 83e38c7] added new benchmarks
 	 1 files changed, 5 insertions(+), 0 deletions(-)
 
-Notice how you don’t have to run `git add` on the `benchmarks.rb` file in this case before you commit.
+Заўважце, што ў гэты раз вам не спатрэбілася запускаць `git add` для файла `benchmarks.rb` перад камітам.
 
-### Removing Files ###
+### Выдаленьне файлаў ###
 
-To remove a file from Git, you have to remove it from your tracked files (more accurately, remove it from your staging area) and then commit. The `git rm` command does that and also removes the file from your working directory so you don’t see it as an untracked file next time around.
+Каб выдаліць файл зь Git, вам неабходна выдаліць яго са сьпісу адсочваемых файлаў (дакладней, выдаліць яго з прасторы індэксацыі) і зрабіць каміт. Каманда `git rm` зробіць гэта і яшчэ выдаліць файл з вашай працоўнай тэчкі, і наступны раз вы яго ня ўбачыце як неадсочваемы.
 
-If you simply remove the file from your working directory, it shows up under the “Changed but not updated” (that is, _unstaged_) area of your `git status` output:
+Калі вы проста выдаліце файл з працоўнай тэчкі, то пасьля запуску `git status` вы ўбачыце яго ў разьдзеле “Changed but not updated (Зьмененыя, але не абноўленыя)” (то бок *непраіндэксаваным*):
 
 	$ rm grit.gemspec
 	$ git status
@@ -351,7 +351,7 @@ If you simply remove the file from your working directory, it shows up under the
 	#       deleted:    grit.gemspec
 	#
 
-Then, if you run `git rm`, it stages the file’s removal:
+Далей, калі вы выканаеце `git rm`, Git праіндэксуе яго як выдаленага:
 
 	$ git rm grit.gemspec
 	rm 'grit.gemspec'
@@ -364,31 +364,31 @@ Then, if you run `git rm`, it stages the file’s removal:
 	#       deleted:    grit.gemspec
 	#
 
-The next time you commit, the file will be gone and no longer tracked. If you modified the file and added it to the index already, you must force the removal with the `-f` option. This is a safety feature to prevent accidental removal of data that hasn’t yet been recorded in a snapshot and that can’t be recovered from Git.
+Пасьля наступнага каміта, файл больш ня будзе адсочвацца. Калі вы ўжо зьмянілі файл і праіндэксавалі яго, то каб Git выдаліў яго, неабходна выканаць прымусовае выдаленьне з опцыяй `-f`. Гэта зроблена, каб прадухіліць выпадковае выдаленьне даньняў, якія былі зьмененыя і не захаваныя ў сховішчы.
 
-Another useful thing you may want to do is to keep the file in your working tree but remove it from your staging area. In other words, you may want to keep the file on your hard drive but not have Git track it anymore. This is particularly useful if you forgot to add something to your `.gitignore` file and accidentally added it, like a large log file or a bunch of `.a` compiled files. To do this, use the `--cached` option:
+Другая карысная рэч якую вы можаце захацець зрабіць — гэта выдаленьне файла з прасторы індэксацыі, але пакіданьне яго ў працоўнай дырэкторыі. Іншымі словамі, вы жадаеце пакінуць файл на вашым жорсткім дыску, але Git не павінен больш адсочваць яго. Гэта можа спатрэбіцца, калі вы забылі нешта прапісаць у `.gitignore` файл і выпадкова праіндэксавалі непатрэбны файл, як вялікі log-файл ці пакунак `.a`-файлаў. У такіх выпадках трэба скарыстацца опцыяй `--cached`:
 
 	$ git rm --cached readme.txt
 
-You can pass files, directories, and file-glob patterns to the `git rm` command. That means you can do things such as
+Для `git rm` вы можаце пазначыць файлы, дырэкторыі ці glob-шаблёны. То бок вы маеце магчымасьць прапісаць нешта кшталту:
 
 	$ git rm log/\*.log
 
-Note the backslash (`\`) in front of the `*`. This is necessary because Git does its own filename expansion in addition to your shell’s filename expansion. This command removes all files that have the `.log` extension in the `log/` directory. Or, you can do something like this:
+Зьвярніце ўвагу, што перад зорачкай `*` стаіць адваротны слэш `\`. Гэта неабходна, таму што Git выкарыстоўвае сваё пашырэньне для апрацоўкі шаблёнаў імён файлаў. Гэтая каманда выдаліць усе файлы, якія маюць пашырэньне `.log` у тэчцы `log/`. Ці вы можаце напісаць нешта наступнае:
 
 	$ git rm \*~
 
-This command removes all files that end with `~`.
+Гэтая каманда выдаляе ўсе файлы, якія сканчваюцца на `~`.
 
-### Moving Files ###
+### Перамяшчэньне файлаў ###
 
-Unlike many other VCS systems, Git doesn’t explicitly track file movement. If you rename a file in Git, no metadata is stored in Git that tells it you renamed the file. However, Git is pretty smart about figuring that out after the fact — we’ll deal with detecting file movement a bit later.
+У адрозьненьні ад іншых сыстэм кіраваньня вэрсіямі, Git непасрэдна не падтрымлівае перамяшчэньне файлаў. Калі вы пераймянуеце файл, у Git'е не захавае аніякіх мэтаданьняў, пра тое, што вы яго перайменавалі. Аднак, Git дастаткова разумны, каб вызначыць ужо зьдзейсьнены факт перайменаваньня — перамяшчэньне файлаў мы разглядзім крыху пазьней.
 
-Thus it’s a bit confusing that Git has a `mv` command. If you want to rename a file in Git, you can run something like
+Такім чынам, наяўнасьць каманды Git `mv` можа трохі заблытаць. Калі вы жадаеце перайменаваць файл у Git, вы мусіце выканаць наступнае:
 
 	$ git mv file_from file_to
 
-and it works fine. In fact, if you run something like this and look at the status, you’ll see that Git considers it a renamed file:
+І гэта будзе выдатна працаваць. Калі вы сапраўды выканаеце гэта, і паглядзіце на стан сховішча, вы ўбачыце, што Git улічвае перайменаваньне файла:
 
 	$ git mv README.txt README
 	$ git status
@@ -401,13 +401,13 @@ and it works fine. In fact, if you run something like this and look at the statu
 	#       renamed:    README.txt -> README
 	#
 
-However, this is equivalent to running something like this:
+Аднак, гэта ўсё эквівалентна наступным дзеяньням:
 
 	$ mv README.txt README
 	$ git rm README.txt
 	$ git add README
 
-Git figures out that it’s a rename implicitly, so it doesn’t matter if you rename a file that way or with the `mv` command. The only real difference is that `mv` is one command instead of three — it’s a convenience function. More important, you can use any tool you like to rename a file, and address the add/rm later, before you commit.
+Git няяўна высьвятляе што было перайменавана, таму ня мае значэньня так ці з дапамогай каманды `mv` вы перайменавалі файл. Сапраўдная розьніца паміж гэтымі шляхамі, што `mv` — гэта каманда, якая замяняе тры — функцыя для зручнасьці. Больш важна тое, што вы можаце выкарыстоўваць любы спосаб перайменаваньня файлаў, і перад камітам выкарыстаць `add/rm`.
 
 ## Viewing the Commit History ##
 

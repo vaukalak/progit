@@ -409,15 +409,15 @@ Glob шаблёны — гэта аналяг сталых выразаў, як�
 
 Git няяўна высьвятляе што было перайменавана, таму ня мае значэньня так ці з дапамогай каманды `mv` вы перайменавалі файл. Сапраўдная розьніца паміж гэтымі шляхамі, што `mv` — гэта каманда, якая замяняе тры — функцыя для зручнасьці. Больш важна тое, што вы можаце выкарыстоўваць любы спосаб перайменаваньня файлаў, і перад камітам выкарыстаць `add/rm`.
 
-## Viewing the Commit History ##
+## Прагляд гісторыі камітаў ##
 
-After you have created several commits, or if you have cloned a repository with an existing commit history, you’ll probably want to look back to see what has happened. The most basic and powerful tool to do this is the `git log` command.
+Пасьля таго як вы зрабілі некалькі камітаў, ці атрымалі клон сховішча з існай гісторыяй камітаў, вы магчыма захочаце ўбачыць што было зроблена ў праекце да гэтага часу. Самым асноўным і карысным інструмэнтам для гэтага зьяўляецца `git log`.
 
-These examples use a very simple project called `simplegit` that I often use for demonstrations. To get the project, run
+Наступныя прыклады выкарыстоўваюць вельмі просты праект, які называецца `simplegit`. Яго я часта выкарыстоўваю для дэманстрацыі. Каб атрымаць яго выканайце 
 
 	git clone git://github.com/schacon/simplegit-progit.git
 
-When you run `git log` in this project, you should get output that looks something like this:
+Калі ў гэтым прекце вы запусьціце `git log`, вывад будзе выглядаць прыкладна так:
 
 	$ git log
 	commit ca82a6dff817ec66f44342007202690a93763949
@@ -438,11 +438,11 @@ When you run `git log` in this project, you should get output that looks somethi
 
 	    first commit
 
-By default, with no arguments, `git log` lists the commits made in that repository in reverse chronological order. That is, the most recent commits show up first. As you can see, this command lists each commit with its SHA-1 checksum, the author’s name and e-mail, the date written, and the commit message.
+Прадвызначана, без аргумэнтаў, `git log` адлюстроўвае сьпіс зробленых камітаў у адваротным храналягічнаму парадку. То бок самыя апошнія каміты бачныя першымі. Як вы заўважылі, кожны каміт стрымлівае яго кантрольную суму SHA-1, імя і электронную пошту аўтара, дату захаваньня, і паведамленьне.
 
-A huge number and variety of options to the `git log` command are available to show you exactly what you’re looking for. Here, we’ll show you some of the most-used options.
+Вялікая колькасьць і разнастайнасьць опцыяў каманды `git log` дазваляе дакладна вызначаць вывад, які вы жадаеце ўбачыць. Зараз мы вам распавядзём пра некаторыя найбольш ужывальныя зь іх.
 
-One of the more helpful options is `-p`, which shows the diff introduced in each commit. You can also use `-2`, which limits the output to only the last two entries:
+Адна з самых карысных опцыяў — гэта `-p`, якая паказвае diff-паведамленьне для кожнага каміта. Вы таксама можаце дадаць опцыю `-2`, якая абмяжуе вывад апошнімі дзьвюма камітамі:
 
 	$ git log -p -2
 	commit ca82a6dff817ec66f44342007202690a93763949
@@ -482,8 +482,8 @@ One of the more helpful options is `-p`, which shows the diff introduced in each
 	-end
 	\ No newline at end of file
 
-This option displays the same information but with a diff directly following each entry. This is very helpful for code review or to quickly browse what happened during a series of commits that a collaborator has added.
-You can also use a series of summarizing options with `git log`. For example, if you want to see some abbreviated stats for each commit, you can use the `--stat` option:
+Дадзеная опцыя адлюстроўвае тую ж інфармацыю, але разам з зробленымі зьменамі пад кожным элемэнтам сьпісу. Гэта вельмі зручны рэжым для агляду коду ці для неабходнасьці хутка зразумець, якія зьмены зрабіў ваш супрацоўнік.
+Таксама разам зь `git log` вы можаце выкарыстоўваць опцыі з групы абагульняючых парамэтраў. Напрыклад, калі вы жадае ўбачыць кароткую статыстыку па кожнаму каміту, вы мусіце дадаць опцыю `--stat`:
 
 	$ git log --stat
 	commit ca82a6dff817ec66f44342007202690a93763949
@@ -515,39 +515,39 @@ You can also use a series of summarizing options with `git log`. For example, if
 	 lib/simplegit.rb |   25 +++++++++++++++++++++++++
 	 3 files changed, 54 insertions(+), 0 deletions(-)
 
-As you can see, the `--stat` option prints below each commit entry a list of modified files, how many files were changed, and how many lines in those files were added and removed. It also puts a summary of the information at the end.
-Another really useful option is `--pretty`. This option changes the log output to formats other than the default. A few prebuilt options are available for you to use. The `oneline` option prints each commit on a single line, which is useful if you’re looking at a lot of commits. In addition, the `short`, `full`, and `fuller` options show the output in roughly the same format but with less or more information, respectively:
+Як вы бачыце, опцыя `--stat` друкуе пад кожным камітам сьпіс мадыфікаваных файлаў, іх колькасьці і колькасьць радкоў дадзеных і выдаленых. А ў канцы абагульняючая інфармацыя пра ўсе зьмены.
+Другая сапраўды карысная опцыя — `--pretty`. Гэтая опцыя зьмяняе фармат вываду. Даступна некалькі перадусталяваных варыянтаў. `oneline` друкуе кожны каміт адным радком, што можа быць зручна, калі вы праглядаеце шмат камітаў. У дадатак да гэтага ёсьць опцыі `short`, `full` і `fuller`, якія, практычна не зьмяняючы фармат, выводзяць менш ці больш інфармацыі адпаведна:
 
 	$ git log --pretty=oneline
 	ca82a6dff817ec66f44342007202690a93763949 changed the version number
 	085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7 removed unnecessary test code
 	a11bef06a3f659402fe7563abf99ad00de2209e6 first commit
 
-The most interesting option is `format`, which allows you to specify your own log output format. This is especially useful when you’re generating output for machine parsing — because you specify the format explicitly, you know it won’t change with updates to Git:
+Найбольш цікавая опцыя — `format`, якая дазваляе вызначаць фармат вываду журнала. Яна асабліва карысна, калі вам неабходна генэраваць вывад для далейшага машыннага разбору — вы можаце дакладна вызначыць фармат і быць упэўненымі, што ён ня зьменіцца пасьля абнаўленьня Git.
 
 	$ git log --pretty=format:"%h - %an, %ar : %s"
 	ca82a6d - Scott Chacon, 11 months ago : changed the version number
 	085bb3b - Scott Chacon, 11 months ago : removed unnecessary test code
 	a11bef0 - Scott Chacon, 11 months ago : first commit
 
-Table 2-1 lists some of the more useful options that format takes.
+Табліца 2-1 зьмяшчае сьпіс некалькіх найбольш ужываных опцый для ўсталяваньня фармату.
 
-	Option	Description of Output
-	%H	Commit hash
-	%h	Abbreviated commit hash
-	%T	Tree hash
-	%t	Abbreviated tree hash
-	%P	Parent hashes
-	%p	Abbreviated parent hashes
-	%an	Author name
-	%ae	Author e-mail
-	%ad	Author date (format respects the –date= option)
-	%ar	Author date, relative
-	%cn	Committer name
-	%ce	Committer email
-	%cd	Committer date
-	%cr	Committer date, relative
-	%s	Subject
+	Опцыя	Апісаньне вываду
+	%H	Хэш каміту
+	%h	Скарочаны хэш каміту
+	%T	Хэш дрэва
+	%t	Скарочаны хэш дрэва
+	%P	Бацькоўскія хэшы
+	%p	Скарочаныя бацькоўскія хэшы
+	%an	Імя аўтара
+	%ae	Электронная пошта аўтара
+	%ad	Дата аўтара (фармат вызначаецца --date= )
+	%ar	Дата аўтара, адносная
+	%cn	Імя камітэра
+	%ce	Электронная пошта камітэра
+	%cd	Дата камітэра
+	%cr	Дата камітэра, адносная
+	%s	Паведамленьне
 
 You may be wondering what the difference is between _author_ and _committer_. The _author_ is the person who originally wrote the patch, whereas the _committer_ is the person who last applied the patch. So, if you send in a patch to a project and one of the core members applies the patch, both of you get credit — you as the author and the core member as the committer. We’ll cover this distinction a bit more in *Chapter 5*.
 

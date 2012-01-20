@@ -549,9 +549,9 @@ Git няяўна высьвятляе што было перайменавана
 	%cr	Дата камітэра, адносная
 	%s	Паведамленьне
 
-You may be wondering what the difference is between _author_ and _committer_. The _author_ is the person who originally wrote the patch, whereas the _committer_ is the person who last applied the patch. So, if you send in a patch to a project and one of the core members applies the patch, both of you get credit — you as the author and the core member as the committer. We’ll cover this distinction a bit more in *Chapter 5*.
+Вы верагодна зацікавіцеся ў чым розьніца паміж _аўтарам_ і _камітэрам_. _Аўтар_ — гэта асоба, якая напісала латку, а _камітэр_ — гэта той, хто ўжыў яе да праекту. Таму, калі вы адаслалі аднаму з распрацоўшчыкаў праекту сваю латку, то і яго, і ваша імя будзе ў каміце: яго — як камітэра, ваша — як аўтара. Больш падрабязна разглядзім гэта у *Главе 5*.
 
-The `oneline` and `format` options are particularly useful with another `log` option called `--graph`. This option adds a nice little ASCII graph showing your branch and merge history, which we can see our copy of the Grit project repository:
+Опцыі `oneline` і `format` асабліва карысныя для іншай опцыі каманды `log` — `--graph`. Гэта опцыя просты ASCII-граф, які адлюстроўвае галіны і аб'яднаньні ў гісторыі. Яго вы можаце пабачыць у вашай копіі сховішча Grit:
 
 	$ git log --pretty=format:"%h %s" --graph
 	* 2d3acf9 ignore errors from SIGCHLD on trap
@@ -565,18 +565,18 @@ The `oneline` and `format` options are particularly useful with another `log` op
 	* d6016bc require time for xmlschema
 	*  11d191e Merge branch 'defunkt' into local
 
-Those are only some simple output-formatting options to `git log` — there are many more. Table 2-2 lists the options we’ve covered so far and some other common formatting options that may be useful, along with how they change the output of the log command.
+Мы разглядзелі толькі самыя простыя опцыі для фарміраваньня вываду `git log`, але іх значна больш. Табліца 2-2 зьмяшчае больш поўны іх сьпіс разам з апісаньнем іх узьдзеяньня на вывад.
 
-	Option	Description
-	-p	Show the patch introduced with each commit.
-	--stat	Show statistics for files modified in each commit.
-	--shortstat	Display only the changed/insertions/deletions line from the --stat command.
-	--name-only	Show the list of files modified after the commit information.
-	--name-status	Show the list of files affected with added/modified/deleted information as well.
-	--abbrev-commit	Show only the first few characters of the SHA-1 checksum instead of all 40.
-	--relative-date	Display the date in a relative format (for example, “2 weeks ago”) instead of using the full date format.
-	--graph	Display an ASCII graph of the branch and merge history beside the log output.
-	--pretty	Show commits in an alternate format. Options include oneline, short, full, fuller, and format (where you specify your own format).
+	Опцыя	Апісаньне
+	-p	Адлюстроўвае латку ўнесеную кожным камітам.
+	--stat	Адлюстроўвае статыстыку мадыфікацыі файлаў кожнага каміту.
+	--shortstat	Выводзіць толькі колькасьць зьмененых/даданых/выдаленых радкоў з опцыі --stat.
+	--name-only	Адлюстроўвае сьпіс мадыфікаваных файлаў пасьля кожнага каміту.
+	--name-status	Адлюстроўвае сьпіс файлаў разам зь інфармацыяй пра даданьне/мадыфікацыю/выдаленьне.
+	--abbrev-commit	Адлюстроўвае толькі некалькі першых знакаў з кантрольнай сумы SHA-1 каміту (усе займаюць 40).
+	--relative-date	Адлюстроўвае дату ў адносным фармаце (напрыклад, “2 тыдні назад”) замест паўнавартаснай формы.
+	--graph	Адлюстроўвае ASCII-граф галін і аб'яднаньняў ў гісторыі праекту ў вывадзе.
+	--pretty	Адлюстроўвае каміт у альтэрнатыўным фармаце. Аргумэнты — oneline, short, full, fuller і format (дзе вы маеце магчымасьць самастойна ўсталяваць патрэбны фармат).
 
 ### Limiting Log Output ###
 

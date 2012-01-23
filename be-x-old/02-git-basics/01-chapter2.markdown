@@ -578,24 +578,24 @@ Git няяўна высьвятляе што было перайменавана
 	--graph	Адлюстроўвае ASCII-граф галін і аб'яднаньняў ў гісторыі праекту ў вывадзе.
 	--pretty	Адлюстроўвае каміт у альтэрнатыўным фармаце. Аргумэнты — oneline, short, full, fuller і format (дзе вы маеце магчымасьць самастойна ўсталяваць патрэбны фармат).
 
-### Limiting Log Output ###
+### Абмежаваньне вываду гісторыі ###
 
-In addition to output-formatting options, `git log` takes a number of useful limiting options — that is, options that let you show only a subset of commits. You’ve seen one such option already — the `-2` option, which show only the last two commits. In fact, you can do `-<n>`, where `n` is any integer to show the last `n` commits. In reality, you’re unlikely to use that often, because Git by default pipes all output through a pager so you see only one page of log output at a time.
+Акрамя опцыяў для фарматаваньня вываду, `git log` мае шэраг карысных опцыяў для абмежаваньня вываду, яны дазваляюць адлюстраваць толькі пэўнае падмноства камітаў. Вы ўжо бачылі адну зь іх — гэта опцыя `-2`, якая адлюструе толькі два апошніх каміта. На самой справе, вы можаце пазначыць `-<n>`, дзе `n` — нейкі цэлы лік. На практыцы, вы наўрад ці будзеце часта выкарыстоўваць яе, бо Git прадвызначана прапускае ўвесь свой вывад праз пэйджэр (pager), таму вы бачыце толькі адну старонку вываду.
 
-However, the time-limiting options such as `--since` and `--until` are very useful. For example, this command gets the list of commits made in the last two weeks:
+Аднак опцыя абмежаваньня паводле часу, такія як `--since` і `--until`, вельмі папулярныя. Напрыклад, наступная каманда атрымае сьпіс камітаў зроблены ў апошнія два тыдні:
 
 	$ git log --since=2.weeks
 
-This command works with lots of formats — you can specify a specific date (“2008-01-15”) or a relative date such as “2 years 1 day 3 minutes ago”.
+Яна разумее мноства фарматаў — вы можаце пазначыць пэўную дату (“2008-01-15”) ці адносную (“2 years 1 day 3 minutes ago”).
 
-You can also filter the list to commits that match some search criteria. The `--author` option allows you to filter on a specific author, and the `--grep` option lets you search for keywords in the commit messages. (Note that if you want to specify both author and grep options, you have to add `--all-match` or the command will match commits with either.)
+Таксама вы маеце магчымасьць фільтраваць сьпіс камітаў па зададзенай умове. Опцыя `--author` задае імя аўтара, а `--grep` дазваляе выводзіць каміты з ключавымі словамі ў паведамленьні. (Зьвярніце ўвагу на тое, што калі вы жадаеце пазначыць абедзьве опцыі, вы мусіце дадаць опцыю `--all-match`.)
 
-The last really useful option to pass to `git log` as a filter is a path. If you specify a directory or file name, you can limit the log output to commits that introduced a change to those files. This is always the last option and is generally preceded by double dashes (`--`) to separate the paths from the options.
+Апошняя сапраўды карысная опцыя — гэта шлях. Калі вы пазначаеце імя дырэкторыі ці фала, вы абмяжоўваеце вывад толькі тымі камітамі, якія ўносяць зьмены ў гэтыя файлы. Гэта опцыя заўсёды павінна быць апошняй і папярэджваецца дзьвюма злучкамі (`--`) каб разьдзяліць шлях і астатнія парамэтры.
 
-In Table 2-3 we’ll list these and a few other common options for your reference.
+У Табліцы 2-3 прыведзены сьпіс часта ўжываных опцыяў.
 
-	Option	Description
-	-(n)	Show only the last n commits
+	Опцыя	Апісаньне
+	-(n)	Адлюстраваць толькі апошнія n камітаў
 	--since, --after	Limit the commits to those made after the specified date.
 	--until, --before	Limit the commits to those made before the specified date.
 	--author	Only show commits in which the author entry matches the specified string.

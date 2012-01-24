@@ -119,19 +119,14 @@ Insert 18333fig0106.png
 Калі гэтая вэрсія файла была захаваная ў тэчцы git, то яна лічыцца захаванай (ці закамічанай). Калі файл зьменены, але дабаўлены ў зону падрыхтаваных файлаў, то ён лічыцца падрыхтаваным (staged). І калі файл быў зьменены, але ня быў падрыхтаваным, то ён лічыцца зьмененым. У Главе 2 вы даведаецеся больш пра гэтыя станы, і пра тое, як, альбо скарыстацца гэтым, альбо наогул прапусціць этап падрыхтаваных файлаў.
 
 ## Усталёўка Git ##
-## Installing Git ##
 
-Цяпер мы пачнем непасрэдна выкарыстоўваць Git. Пачнем ад пачатку — з усталёўкі. Ёсць некалькі метадаў выканаць усталёўку. Два асноўных, гэта ўсталёўка з зыходнікаў і усталёўка з гатовага пакету для вашае платформы.
-Let’s get into using some Git. First things first—you have to install it. You can get it a number of ways; the two major ones are to install it from source or to install an existing package for your platform.
+Цяпер мы пачнем непасрэдна выкарыстоўваць Git. Пачнем ад пачатку — з усталёўкі. Ёсьць некалькі метадаў выканаць усталёўку. Два асноўных, гэта ўсталёўка з зыходнікаў і усталёўка з гатовага пакету для вашае платформы.
 
 ### Усталёўка з зыходнікаў ###
-### Installing from Source ###
 
-Калі гэта магчыма, усталёўка з зыходнікаў можа быць даволі карыснай, таму што вы атрымліваеце самую свежую версію. З кожнай новай версіяй распрацоўшчыкі Git імкнуцца дадаць як мага больш зручных паляпшэнняў інтэрфейсу, так што — калі вы нармальна ставіцеся да кампіляцыі праграм з зыходнікаў — лепш за ўсё атрымаць апошнюю версію. Часта дыстрыбутывы Linux змяшчаюць даволі старыя версіі пакетаў. Так што, калі вы не карыстаецеся вельмі новым дыстрыбутывам, ці, наадварот вельмі старым (backports), то зборка з зыходнікаў можа быць найлепшым выйсцем для вас.
-If you can, it’s generally useful to install Git from source, because you’ll get the most recent version. Each version of Git tends to include useful UI enhancements, so getting the latest version is often the best route if you feel comfortable compiling software from source. It is also the case that many Linux distributions contain very old packages; so unless you’re on a very up-to-date distro or are using backports, installing from source may be the best bet.
+Калі гэта магчыма, усталёўка з зыходнікаў можа быць даволі карыснай, таму што вы атрымліваеце самую сьвежую вэрсію. З кожнай новай вэрсіяй распрацоўнікі Git імкнуцца дадаць як мага больш зручных паляпшэньняў інтэрфэйсу, так што — калі вы нармальна ставіцеся да кампіляцыі праграм з зыходнікаў — лепш за ўсё атрымаць апошнюю вэрсію. Часта дыстрыбутывы Linux зьмяшчаюць даволі старыя вэрсіі пакетаў. Так што, калі вы не карыстаецеся вельмі новым дыстрыбутывам, ці, наадварот вельмі старым, то зборка з зыходнікаў можа быць найлепшым выйсьцем для вас.
 
-Каб праінсталяваць Git, вы павінны мець наступныя бібліятэкі, ад якіх Git залежыць: curl, zlib, openssl, expat і libiconv. Напрыклад, калі вы карыстаецеся сістэмай, якая выкарыстоўвае yum (як, напрыклад, Fedora) ці apt-get (як сістэмы, пабудаваныя на Debian), то можна скарыстацца адной з наступных каманд, каб усталяваць ўсе патрэбныя пакеты:
-To install Git, you need to have the following libraries that Git depends on: curl, zlib, openssl, expat, and libiconv. For example, if you’re on a system that has yum (such as Fedora) or apt-get (such as a Debian based system), you can use one of these commands to install all of the dependencies:
+Каб праінсталяваць Git, вы павінны мець наступныя бібліятэкі, ад якіх Git залежыць: curl, zlib, openssl, expat і libiconv. Напрыклад, калі вы карыстаецеся сыстэмай, якая выкарыстоўвае yum (як, напрыклад, Fedora) ці apt-get (як сыстэмы, пабудаваныя на Debian), то можна скарыстацца адной з наступных каманд, каб усталяваць ўсе патрэбныя пакеты:
 
 	$ yum install curl-devel expat-devel gettext-devel \
 	  openssl-devel zlib-devel
@@ -139,123 +134,94 @@ To install Git, you need to have the following libraries that Git depends on: cu
 	$ apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \
 	  libz-dev libssl-dev
 
-Калі усе залежнасці развязаныя, трэба зцягнуць апошні здымак з вэб-сайту Git:
-When you have all the necessary dependencies, you can go ahead and grab the latest snapshot from the Git web site:
+Калі ўсе бібліятэкі ўсталяваныя, трэба запампаваць апошнюю вэрсію з вэб-сайту Git:
 
 	http://git-scm.com/download
-	
+
 Затым зкампіляваць і ўсталяваць:
-Then, compile and install:
 
 	$ tar -zxf git-1.6.0.5.tar.gz
 	$ cd git-1.6.0.5
 	$ make prefix=/usr/local all
 	$ sudo make prefix=/usr/local install
 
-Калі ўсё скончана, вы можаце атрымаць Git праз сам Git для абнаўлення:
-After this is done, you can also get Git via Git itself for updates:
+Калі ўсё скончана, вы можаце атрымаць Git праз сам Git для абнаўленьня:
 
 	$ git clone git://git.kernel.org/pub/scm/git/git.git
-	
-### Усталёўка пад Linux ###
-### Installing on Linux ###
 
-Калі вы хочаце праінсталяваць Git з бінарнага ўсталявальніка, можна скарыстацца звычайнай прыладай для кіравання пакетамі, якая ідзе ў складзе вашага дыстрыбутыва. Калі вы ў Fedora, то можна скарыстацца yum:
-If you want to install Git on Linux via a binary installer, you can generally do so through the basic package-management tool that comes with your distribution. If you’re on Fedora, you can use yum:
+### Усталёўка на Linux ###
+
+Калі вы хочаце праінсталяваць Git з бінарнага ўсталявальніка, можна скарыстацца звычайнай прыладай для кіраваньня пакетамі, якая ідзе ў складзе вашага дыстрыбутыва. Калі вы ў Fedora, то можна скарыстацца yum:
 
 	$ yum install git-core
 
 Ці калі вы ў заснаваным на Debian дыстрыбутыве, кшталту Ubuntu, скарыстайцеся apt-get:
-Or if you’re on a Debian-based distribution like Ubuntu, try apt-get:
 
 	$ apt-get install git-core
 
 ### Усталёка на Mac ###
-### Installing on Mac ###
 
-Існуе два лёхкіх спосаба ўсталяваць Git на Mac. Найпрасцейшы — скарыстацца графічным ўсталявальнікам, які можна загрузіць са старонкі Google Code (гл. Малюнак 1-7)
-There are two easy ways to install Git on a Mac. The easiest is to use the graphical Git installer, which you can download from the Google Code page (see Figure 1-7):
+Існуе два лёгкіх спосабы ўсталяваць Git на Mac. Найпрасьцейшы — скарыстацца графічным ўсталявальнікам, які можна загрузіць са старонкі Google Code (гл. Малюнак 1-7):
 
 	http://code.google.com/p/git-osx-installer
 
 Insert 18333fig0107.png 
 Малюнак 1-7. Усталявальнік Git для OS X.
-Figure 1-7. Git OS X installer.
 
-Іншы асноўны спосаб — усталяваць Git праз MacPorts (`http://www.macports.org`). Калі вы маеце праінсталяваны MacPorts, істалюйце Git з дапамогай
-The other major way is to install Git via MacPorts (`http://www.macports.org`). If you have MacPorts installed, install Git via
+Іншы распаўсюджаны спосаб — усталяваць Git праз MacPorts (`http://www.macports.org`). Калі вы маеце праінсталяваны MacPorts, істалюйце Git такім чынам:
 
 	$ sudo port install git-core +svn +doc +bash_completion +gitweb
 
-Не абавязкова дадаваць усе дадаткі, але вы можаце ўключыць +svn на выпадак, калі вам спатрэбіцца выкарыстоўваць Git з рэпазіторыямі Subversion (гл. Главу 8).
-You don’t have to add all the extras, but you’ll probably want to include +svn in case you ever have to use Git with Subversion repositories (see Chapter 8).
+Не абавязкова ўсталёўваць усе дадаткі, але вы можаце ўключыць +svn на выпадак, калі вам спатрэбіцца выкарыстоўваць Git з рэпазіторамі Subversion (гл. Главу 8).
 
-### Усталёўка пад Windows ###
-### Installing on Windows ###
+### Усталёўка на Windows ###
 
-Усталяваць Git пад Windows вельмі проста. Праект msysGit мае вельмі простую працэдуру усталёўкі. Дастаткова загрузіць усталявальнік ў выглядзе файла  exe са старонкі Google Code і запусціць яго:
-Installing Git on Windows is very easy. The msysGit project has one of the easier installation procedures. Simply download the installer exe file from the Google Code page, and run it:
+Усталяваць Git на Windows вельмі проста. Праект msysGit мае вельмі простую працэдуру усталёўкі. Дастаткова загрузіць усталявальнік ў выглядзе файла  exe са старонкі Google Code і запусціць яго:
 
 	http://code.google.com/p/msysgit
 
-Пасля ўсталёўкі вы будзеце мець як версію для каманднага радка (уключаючы кліента SSH, які будзе вельмі карысны пазней), так і стандарную версію з графічным інтэрфейсам.
-After it’s installed, you have both a command-line version (including an SSH client that will come in handy later) and the standard GUI.
+Пасля ўсталёўкі вы будзеце мець як вэрсію для каманднага радка (уключна з кліентам SSH, які будзе вельмі карысны пазней), так і стандарную вэрсію з графічным інтэрфейсам.
 
 ## Пачатковая наладка Git ##
-## First-Time Git Setup ##
 
-Цяпер, калі вы маеце ўсталяваны Git, трэба зрабіць некалькі рэчаў, каб наладзіць вашае асяроддзе Git. Гэтыя рэчы трэба рабіць толькі аднойчы, пасля абнаўлення гэтыя наладкі не будуць знішчаныя. Канешне, вы можаце змяніць іх ў любы час, выканаўшы гэтыя каманды яшчэ раз.
-Now that you have Git on your system, you’ll want to do a few things to customize your Git environment. You should have to do these things only once; they’ll stick around between upgrades. You can also change them at any time by running through the commands again.
+Цяпер, калі вы маеце ўсталяваны Git, трэба зрабіць некалькі рэчаў, каб наладзіць вашае асяродзьдзе Git. Гэтыя рэчы трэба рабіць толькі аднойчы, пасьля абнаўленьня гэтыя наладкі захаваюцца. Канешне, вы можаце зьмяніць іх ў любы час, калі выканаеце гэтыя каманды яшчэ раз.
 
-Git мае прыладу пад назвай git config, якая дазваляе наладзіць зменныя, якія кіруюць ўсемі аспектамі таго, як Git выглядае і працуе. Гэтыя зменныя могуць захоўвацца ў трох розных месцах:
-Git comes with a tool called git config that lets you get and set configuration variables that control all aspects of how Git looks and operates. These variables can be stored in three different places:
+Git мае прыладу пад назвай git config, якая дазваляе наладзіць параметры, якія кіруюць ўсімі аспектамі таго, як Git выглядае і працуе. Гэтыя параметры могуць захоўвацца ў трох розных месцах:
 
-*	Файл `/etc/gitconfig`: Утрымлівае зменныя для ўсіх карыстальнікаў у сістэме і іх рэпазітараў. Калі ўказаны параметр ` --system` для `git config`, то для чытання і запісу зменных будзе выкарыстоўвацца менавіта гэты файл. 
-*	`/etc/gitconfig` file: Contains values for every user on the system and all their repositories. If you pass the option` --system` to `git config`, it reads and writes from this file specifically. 
-*	Файл `~/.gitconfig`: Спецыфічны для вашага карыстальніка. Каб Git для чытання і запісу выкарыстоўваў менавіта гэты файл выкарыстоўваецца опцыя `--global`. 
-*	`~/.gitconfig` file: Specific to your user. You can make Git read and write to this file specifically by passing the `--global` option. 
-*	Файлы наладак ў тэчцы git (`.git/config`) любога рэпазітара, якім вы зараз карыстаецеся: Спецыфічныя для гэтага канкрэтнага рэпазітара. Кожны ўзровень перавызначае зменныя папярэдняга ўзроўню, так што зменныя з `.git/config` перавызначаюць зменныя з  `/etc/gitconfig`.
-*	config file in the git directory (that is, `.git/config`) of whatever repository you’re currently using: Specific to that single repository. Each level overrides values in the previous level, so values in `.git/config` trump those in `/etc/gitconfig`.
+*	Файл `/etc/gitconfig`: Утрымлівае параметры для ўсіх карыстальнікаў у сыстэме і іх рэпазітараў. Калі ўказаны параметр ` --system` для `git config`, то для чытаньня і запісу зменных будзе выкарыстоўвацца менавіта гэты файл. 
 
-У сістэмах з Windows Git шукае файл `.gitconfig` ў хатняй(`$HOME`) тэчцы карыстальніка (`C:\Documents and Settings\$USER` для большасці карыстальнікаў). Апроч таго, будзе шукаць яшчэ і файл наладак файл /etc/gitconfig, але ўжо па адносным шляху, лічачы за корань карнявую тэчку MSys, то бок тэчку, куды быў усталяваны Git на вашым кампутары.
-On Windows systems, Git looks for the `.gitconfig` file in the `$HOME` directory (`C:\Documents and Settings\$USER` for most people). It also still looks for /etc/gitconfig, although it’s relative to the MSys root, which is wherever you decide to install Git on your Windows system when you run the installer.
+*	Файл `~/.gitconfig`: Спецыфічны для вашага карыстальніка. Каб Git для чытаньня і запісу выкарыстоўваў менавіта гэты файл выкарыстоўваецца опцыя `--global`. 
+ 
+*	Файлы наладак ў тэчцы git (`.git/config`) любога рэпазітара, якім вы зараз карыстаецеся: Спецыфічныя для гэтага канкрэтнага рэпазітара. Кожны ўзровень перавызначае зьменныя папярэдняга ўзроўню, так што зьменныя з `.git/config` перавызначаюць зменныя з  `/etc/gitconfig`.
+
+У сыстэмах з Windows Git шукае файл `.gitconfig` ў хатняй(`$HOME`) тэчцы карыстальніка (`C:\Documents and Settings\$USER` для большасьці карыстальнікаў). Апроч таго Git, будзе шукаць яшчэ і файл наладак файл /etc/gitconfig, але ўжо па адносным шляху MSys, то бок тэчку, куды быў усталяваны Git на вашым кампутары.
 
 ### Дазеныя карыстальніка ###
-### Your Identity ###
 
-Першыя наладкі, якія трэба выканаць пасля ўсталёўкі Git, гэта заданне вашага імя карыстальніка і адраса электроннай пошты. Гэта важна, таму што кожны раз, захоўваючы нешта ў базе дадзеных Git будзе выкарыстоўваць гэтую інфармацыю,  то бок, яна будзе нязменна прысутнічаць ў кожным каміце, які вы будзеце ажыццяўляць:
-The first thing you should do when you install Git is to set your user name and e-mail address. This is important because every Git commit uses this information, and it’s immutably baked into the commits you pass around:
+Першыя наладкі, якія трэба выканаць пасля ўсталёўкі Git, гэта заданьне вашага імя карыстальніка і адраса электроннай пошты. Гэта важна, таму што кожны раз, калі вы захоўваеце нешта ў базе даньняў Git будзе выкарыстоўваць гэтую інфармацыю,  то бок, яна будзе нязьменна прысутнічаць ў кожным каміце, які вы будзеце ажыцьцяўляць:
 
 	$ git config --global user.name "John Doe"
 	$ git config --global user.email johndoe@example.com
 
-Зноўку ж, гэтая наладка робіцца толькі раз, калі скарыстацца опцыяй `--global`, таму што ў такім выпадку Git заўсёды будзе карыстацца гэтай інфармацыяй для ўсяго, што вы робіце ў гэтай сістэме. Калі яе дрэба замяніць на іншае імя ці электронны адрас для нейкага аднаго праекту, то можна запусціць тую ж каманду, знаходзячыся ў тэчцы гэтага праекта, але ўжо без опцыі `--global`.
-Again, you need to do this only once if you pass the `--global` option, because then Git will always use that information for anything you do on that system. If you want to override this with a different name or e-mail address for specific projects, you can run the command without the `--global` option when you’re in that project.
+Зноўку ж, гэтая наладка робіцца толькі раз, калі скарыстацца опцыяй `--global`, таму што ў такім выпадку Git заўсёды будзе карыстацца гэтай інфармацыяй для ўсяго, што вы робіце ў гэтай сыстэме. Калі яе трэба замяніць на іншае імя ці электронны адрас для нейкага аднаго праекту, то можна запусціць тую ж каманду, знаходзячыся ў тэчцы гэтага праекта, але ўжо без опцыі `--global`.
 
 ### Ваш рэдактар ###
-### Your Editor ###
 
-Калі дадзеныя вашага карыстальніка зададзеныя, вы можаце наладзіць тэкставы рэдактар па-вызначэнню, які будзе выкарыстоўвацца ў Git, калі трэба набраць паведамленне. Па-мзоўчванню, Git выкарыстоўвае прадвызначаны ў сістэме рэдактар, якім звычайна з'яўляецца Vi ці Vim. Калі вы хочаце карыстацца іншым тэкставым рэдактарам, напрыклад Emacs, трэба зрабіць наступнае:
-Now that your identity is set up, you can configure the default text editor that will be used when Git needs you to type in a message. By default, Git uses your system’s default editor, which is generally Vi or Vim. If you want to use a different text editor, such as Emacs, you can do the following:
+Калі дадзеныя вашага карыстальніка зададзеныя, вы можаце наладзіць тэкставы рэдактар па-вызначэньню, які будзе выкарыстоўвацца ў Git, калі трэба набраць паведамленьне. Па-змоўчваньню, Git выкарыстоўвае прадвызначаны ў сістэме рэдактар, якім звычайна зьяўляецца Vi ці Vim. Калі вы хочаце карыстацца іншым тэкставым рэдактарам, напрыклад Emacs, трэба зрабіць наступнае:
 
 	$ git config --global core.editor emacs
-	
-### Выбар diff-утыліты ###
-### Your Diff Tool ###
 
-Яшчэ адна карысная опцыя, якую вы, магчыма, захочаце наладзіць, гэта задане diff-утыліты для вырашэння канфліктаў пры зліянні (merge). Напрыклад, кали вы жадаеце выкарыстоўваць vimdiff:
-Another useful option you may want to configure is the default diff tool to use to resolve merge conflicts. Say you want to use vimdiff:
+### Выбар diff-утыліты ###
+
+Яшчэ адна карысная опцыя, якую вы, магчыма, захочаце наладзіць, гэта заданьне diff-утыліты для вырашэньня канфліктаў пры зліцьці (merge). Напрыклад, калі вы жадаеце выкарыстоўваць vimdiff:
 
 	$ git config --global merge.tool vimdiff
 
-Git умее працаваць з accepts kdiff3, tkdiff, meld, xxdiff, emerge, vimdiff, gvimdiff, ecmerge і opendiff. Апроч гэтага, вы можаце наладзіць сваю уласную прыладу, як апісана ў Главе 7.
-Git accepts kdiff3, tkdiff, meld, xxdiff, emerge, vimdiff, gvimdiff, ecmerge, and opendiff as valid merge tools. You can also set up a custom tool; see Chapter 7 for more information about doing that.
+Git умее працаваць з accepts kdiff3, tkdiff, meld, xxdiff, emerge, vimdiff, gvimdiff, ecmerge і opendiff. Апроч гэтага, вы можаце наладзіць сваю уласную прыладу. Больш падрабязна напісана пра гэта ў Главе 7.
 
 ### Праверка наладак ###
-### Checking Your Settings ###
 
-Каб праверыць наладкі, можна скарыстацца камандай `git config --list`, каб вывесці спісак наладак, якія Git можа тут адшукаць:
-If you want to check your settings, you can use the `git config --list` command to list all the settings Git can find at that point:
+Каб праверыць наладкі, можна скарыстацца камандай `git config --list`, каб вывесьці сьпіс наладак, якія Git можа тут адшукаць:
 
 	$ git config --list
 	user.name=Scott Chacon
@@ -266,37 +232,27 @@ If you want to check your settings, you can use the `git config --list` command 
 	color.diff=auto
 	...
 
-Вы можаце убачыць нейкія параметры больш чым аднойчы, таму што Git можа атрымаць яго з розных файлаў (`/etc/gitconfig` і `~/.gitconfig`, напрыклад). У гэтым выпадку Git выкарыстоўвае апошняе значэнне для гэтага асобнага параметра.
-You may see keys more than once, because Git reads the same key from different files (`/etc/gitconfig` and `~/.gitconfig`, for example). In this case, Git uses the last value for each unique key it sees.
+Вы можаце убачыць нейкія параметры больш чым аднойчы, таму што Git можа атрымаць яго з розных файлаў (`/etc/gitconfig` і `~/.gitconfig`, напрыклад). У гэтым выпадку Git выкарыстоўвае апошняе значэньне для гэтага асобнага параметра.
 
-Апроч таго, вы можаце праверыць значэнне толькі аднаго параметра з дапамогай каманды выгляду `git config {параметр}`:
-You can also check what Git thinks a specific key’s value is by typing `git config {key}`:
+Апроч таго, вы можаце праверыць значэньне толькі аднаго параметра з дапамогай каманды выгляду `git config {параметр}`:
 
 	$ git config user.name
 	Scott Chacon
 
-## Атрыманне дапамогі?даведкі ##
-## Getting Help ##
+## Атрыманьне дапамогі ##
 
-Калі вам спатрэбілася дапамога пад час выкарыстання Git, то атрымаць яе магчыма, выклікаўшы старонку даведкі (manpage), адной з трох наступных каманд:
-If you ever need help while using Git, there are three ways to get the manual page (manpage) help for any of the Git commands:
+Каб атрымаць дапамогу, калі яна вам спатрэбілася пад час выкарыстаньня Git, вы можаце выклікаць старонку даведкі, адной з трох наступных каманд:
 
 	$ git help <каманда>
 	$ git <каманда> --help
 	$ man git-<каманда>
 
 Напрыклад, каб атрымаць даведку па камандзе config дастаткова выканаць:
-For example, you can get the manpage help for the config command by running
 
 	$ git help config
 
-Гэта вельмі зручна, таму што даведкай можна скарыстацца дзе і калі заўгадна, нават па-за сецівам. 
-Калі даведкі і гэтай кнігі недастаткова і вам патрэбная дапамога спецыялісты, то вы можаце пашукаць яне на каналах `#git` ці `#github` на IRC серверы Freenode  (irc.freenode.net). Гэтыя каналы пастаянна запоўненыя сотнямі асоб, якія вельмі шмат ведаюць пра Git і даволі часта гатовыя дапамагчы.
-These commands are nice because you can access them anywhere, even offline.
-If the manpages and this book aren’t enough and you need in-person help, you can try the `#git` or `#github` channel on the Freenode IRC server (irc.freenode.net). These channels are regularly filled with hundreds of people who are all very knowledgeable about Git and are often willing to help.
+Гэта вельмі зручна, таму што даведкай можна скарыстацца дзе і калі заўгадна, нават па-за сецівам. Калі даведкі і гэтай кнігі недастаткова і вам патрэбная дапамога сьпецыяліста, то вы можаце пашукаць яне на каналах `#git` ці `#github` на IRC серверы Freenode  (irc.freenode.net). Гэтыя каналы пастаянна запоўненыя сотнямі асоб, якія вельмі шмат ведаюць пра Git і даволі часта гатовыя дапамагчы.
 
 ## Вынікі ##
-## Summary ##
 
-Цяпер вы павінны мець некаторае ўяўленне пра Git і яго адрозненні ад ЦСКВ, якія могуць быць вам карыснымі. Апроч таго, зараз вы павінны мець працуючую версію Git у сваёй сістэме, у якой зададзеныя вашыя персанальныя дадзеныя. Цяпер прыйшоў час перайсці да асноў працы з Git.
-You should have a basic understanding of what Git is and how it’s different from the CVCS you may have been using. You should also now have a working version of Git on your system that’s set up with your personal identity. It’s now time to learn some Git basics.
+Цяпер вы павінны мець некаторае ўяўленьне пра Git і яго адрозненьні ад ЦСКВ, якія могуць быць вам карыснымі. Апроч таго, зараз вы павінны мець працоўную вэрсію Git у сваёй сыстэме, з вашымі асабістымі наладкамі. Цяпер прыйшоў час перайсці да асноў працы з Git.

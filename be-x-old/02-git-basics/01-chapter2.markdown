@@ -596,12 +596,12 @@ Git няяўна высьвятляе што было перайменавана
 
 	Опцыя	Апісаньне
 	-(n)	Адлюстраваць толькі апошнія n камітаў
-	--since, --after	Limit the commits to those made after the specified date.
-	--until, --before	Limit the commits to those made before the specified date.
-	--author	Only show commits in which the author entry matches the specified string.
-	--committer	Only show commits in which the committer entry matches the specified string.
+	--since, --after	Абмежаваць камітамі створанымі пасьля пазначанай даты.
+	--until, --before	Абмежаваць камітамі створанымі да пазначанай даты.
+	--author	Адлюстраваць каміты, у якіх аўтар адпавядае пазначанаму радку.
+	--committer	Адлюстраваць каміты, у якіх камітэр адпавядае пазначанаму радку.
 
-For example, if you want to see which commits modifying test files in the Git source code history were committed by Junio Hamano and were not merges in the month of October 2008, you can run something like this:
+Напрыклад, калі вы жадаеце ўбачыць каміты, якія мадыфікавалі тэставыя файлы, былі зроблены Джуніанам Хаманам (Junio Hamano), не зьяўляюцца камітамі аб'яднаньня і зроблены ў кастрычніку 2008, то вы мусіце выканаць наступны загад:
 
 	$ git log --pretty="%h - %s" --author=gitster --since="2008-10-01" \
 	   --before="2008-11-01" --no-merges -- t/
@@ -612,38 +612,38 @@ For example, if you want to see which commits modifying test files in the Git so
 	51a94af - Fix "checkout --track -b newbranch" on detac
 	b0ad11e - pull: allow "git pull origin $something:$cur
 
-Of the nearly 20,000 commits in the Git source code history, this command shows the 6 that match those criteria.
+З каля 20 000 камітаў у гісторыі Git, гэтая каманда адлюстравала толькі шэсьць адпаведных зададзеным крытэрам.
 
-### Using a GUI to Visualize History ###
+### Візуалізацыя гісторыі ў графічным інтэрфэйсе ###
 
-If you like to use a more graphical tool to visualize your commit history, you may want to take a look at a Tcl/Tk program called `gitk` that is distributed with Git. Gitk is basically a visual `git log` tool, and it accepts nearly all the filtering options that `git log` does. If you type `gitk` on the command line in your project, you should see something like Figure 2-2.
+Калі вам больш падабаюцца інструмэнты з графічным інтэрфэйсам, і вы б хацелі праглядаць у іх гісторыю Git, то можна скарыстацца Tcl/Tk праграмай `gitk`, якая распаўсюджваецца разам зь Git. Gitk — гэта базавы інструмэнт для візуалізацыі `git log`, ён дазваляе ўжываць амаль усе фільтруючыя опцыі, якія падтрымлівае `git log`. Пасьля таго, як вы надрукуе `gitk` у вашым загадным радку ў дырэкторыі праекту, вы убачыце прыкладна наступны малюнак:
 
 Insert 18333fig0202.png
-Figure 2-2. The gitk history visualizer.
+Дыяграма 2-2. Адлюстраваньне гісторыі з дапамогай gitk.
 
-You can see the commit history in the top half of the window along with a nice ancestry graph. The diff viewer in the bottom half of the window shows you the changes introduced at any commit you click.
+Вы бачыце гісторыю камітаў у верхняй палове вакна ўздоўж графа паходжаньня. У ніжняй палове знаходзіцца праглядальнік зьменаў унесеных кожным вылучаным камітам.
 
-## Undoing Things ##
+## Скасаваньне зьменаў ##
 
-At any stage, you may want to undo something. Here, we’ll review a few basic tools for undoing changes that you’ve made. Be careful, because you can’t always revert some of these undos. This is one of the few areas in Git where you may lose some work if you do it wrong.
+У любы момант у вас можа ўзьнікнуць неабходнасьць што-небудзь адмяніць. Зараз мы распавядзём пра некалькі базавых інструмэнтаў для скасаваньня зробленых вамі зьменаў. Будзьце пільнымі, не заўсёды магчыма аднавіць скасованыя зьмены. Гэта адно зь нешматлікіх месцаў у Git, дзе вы можаце згубіць зробленую вамі працу.
 
-### Changing Your Last Commit ###
+### Зьмена апошняга каміту ###
 
-One of the common undos takes place when you commit too early and possibly forget to add some files, or you mess up your commit message. If you want to try that commit again, you can run commit with the `--amend` option:
+Адзін з найбольшы тыповых выпадкаў зьмены апошняга каміту, калі вы занадта рана зрабілі каміт, ці забылі дадаць нейкія файлы, ці наблыталі нешта ў камэнтары. Калі вы хочаце перарабіць каміт, то запусьціце каманду каміта разам з опцыяй `--amend`:
 
 	$ git commit --amend
 
-This command takes your staging area and uses it for the commit. If you’ve made no changes since your last commit (for instance, you run this command immediately after your previous commit), then your snapshot will look exactly the same and all you’ll change is your commit message.
+Яна дадае праіндэксаваныя вамі файлы ў каміт. Калі вы нічога не зьмянілі пасьля апошняга каміту (напрыклад, вы запусьцілі гэтую каманду адразу пасьля стварэньня каміту), то "здымак" праекту, які захоўвае каміт, застанецца такім самым, адзінае што вы зьменіце — гэта камэнтар.
 
-The same commit-message editor fires up, but it already contains the message of your previous commit. You can edit the message the same as always, but it overwrites your previous commit.
+Зьявіцца той самы рэдактар паведамленьняў камітаў, але разам з старым паведамленьнем. Вы можаце адрэдагаваць гэты тэкст як і заўсёды, і ён будзе захаваны замест старога.
 
-As an example, if you commit and then realize you forgot to stage the changes in a file you wanted to add to this commit, you can do something like this:
+Напрыклад, калі пасьля каміту вы ўзгадалі, што забылі праіндэксаваць зьмены ў адным з файлаў, але неабходна іх туды дадаць, то вам патрэбна зрабіць наступнае:
 
 	$ git commit -m 'initial commit'
 	$ git add forgotten_file
 	$ git commit --amend
 
-After these three commands, you end up with a single commit — the second commit replaces the results of the first.
+Усе гэтыя тры каманды ў выніку створаць адзіны каміт — каміт апошняй каманды заменіць каміт першай.
 
 ### Unstaging a Staged File ###
 

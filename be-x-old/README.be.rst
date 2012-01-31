@@ -21,7 +21,7 @@ commit - каміт
 commited - зафіксаваны, закамічаны
 fetch - сьцягваньне
 repository - сховішча
-tracked - адсочваемы
+tracked - адсочаны
 staged - праіндэксаваны
 branch - галіна
 modified - мадыфікаваны, зьменены

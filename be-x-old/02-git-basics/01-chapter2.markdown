@@ -677,11 +677,11 @@ Insert 18333fig0202.png
 	#       modified:   benchmarks.rb
 	#
 
-Гэта каманда крыху дзіўная, але яна працуе. Файл `benchmarks.rb` мадыфікаваны і не праіндэксаваны.
+Гэта каманда крыху дзіўная, але яна працуе. Цяпер файл `benchmarks.rb` мадыфікаваны і не праіндэксаваны.
 
-### Unmodifying a Modified File ###
+### Скасаваньне зьменаў файла ###
 
-What if you realize that you don’t want to keep your changes to the `benchmarks.rb` file? How can you easily unmodify it — revert it back to what it looked like when you last committed (or initially cloned, or however you got it into your working directory)? Luckily, `git status` tells you how to do that, too. In the last example output, the unstaged area looks like this:
+А што, калі вы вырашылі, што не жадаеце пакідаць зьмены зробленыя ў файле `benchmarks.rb`? Як проста скасаваць іх — вярнуць усё да стану апошняга каміту (ці стану пасьля кланаваньня альбо любога іншага дзеяньня, зь якім у працоўнай дырэкторыі зьявіўся гэты файл)? На шчасьце `git status` зноў падкажа нам, як гэта зрабіць. У вывадзе апошняга прыкладу, непраіндэксаваная прастора выглядала так:
 
 	# Changed but not updated:
 	#   (use "git add <file>..." to update what will be committed)
@@ -690,7 +690,7 @@ What if you realize that you don’t want to keep your changes to the `benchmark
 	#       modified:   benchmarks.rb
 	#
 
-It tells you pretty explicitly how to discard the changes you’ve made (at least, the newer versions of Git, 1.6.1 and later, do this — if you have an older version, we highly recommend upgrading it to get some of these nicer usability features). Let’s do what it says:
+Тут даволі відасочна сказана, як скасаваць зробленыя вамі зьмены (ва ўсякім разе, гэта падтрымліваюць вэрсіі Git 1.6.1 і старэйшыя; калі ў вас старая вэрсія, то мы настойліва раім абнавіць праграму). Давайце зробім тое што прапанавана:
 
 	$ git checkout -- benchmarks.rb
 	$ git status
@@ -701,9 +701,9 @@ It tells you pretty explicitly how to discard the changes you’ve made (at leas
 	#       modified:   README.txt
 	#
 
-You can see that the changes have been reverted. You should also realize that this is a dangerous command: any changes you made to that file are gone — you just copied another file over it. Don’t ever use this command unless you absolutely know that you don’t want the file. If you just need to get it out of the way, we’ll go over stashing and branching in the next chapter; these are generally better ways to go.
+Вы можаце бачыць, што зьмены былі адмененыя. Магчыма, вы таксама заўважылі, што гэтая каманда небясьпечная: любыя зробленыя вамі зьмены ў гэтым файле зьніклі — вы проста скапіявалі паверх яго іншы файл. Ніколі не выкарыстоўвайце гэту каманду, калі абсалютна ня ўпэўненыя, што вам не патрэбны гэтя файл. Калі вам проста неабходна, каб ён ня блытаўся пад нагамі, то ў наступнай главе мы разглядзім, як вырашыць гэта з дапамогай затойваньня (stashing) і разгалінаваньня; гэтыя спосабы звычайна больш прыдатныя.
 
-Remember, anything that is committed in Git can almost always be recovered. Even commits that were on branches that were deleted or commits that were overwritten with an `--amend` commit can be recovered (see *Chapter 9* for data recovery). However, anything you lose that was never committed is likely never to be seen again.
+Запамятайце, усё, што было зафіксавана, амаль заўсёды можа быць адноўлена. Нават каміты, якія былі ў выдаленых галінах, ці перазапісаныя з опцыяй `--amend` (пра аднаўленьне даньняў глядзіце *Главу 9*). Аднак, усё што не трапляла ў каміты, хутчэй за ўсё, вы ўжо ніколі ня ўбачыце.
 
 ## Working with Remotes ##
 

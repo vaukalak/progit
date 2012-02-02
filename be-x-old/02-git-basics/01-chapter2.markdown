@@ -705,10 +705,10 @@ Insert 18333fig0202.png
 
 Запамятайце, усё, што было зафіксавана, амаль заўсёды можа быць адноўлена. Нават каміты, якія былі ў выдаленых галінах, ці перазапісаныя з опцыяй `--amend` (пра аднаўленьне даньняў глядзіце *Главу 9*). Аднак, усё што не трапляла ў каміты, хутчэй за ўсё, вы ўжо ніколі ня ўбачыце.
 
-## Working with Remotes ##
+## Праца з аддаленымі сховішчамі ##
 
-To be able to collaborate on any Git project, you need to know how to manage your remote repositories. Remote repositories are versions of your project that are hosted on the Internet or network somewhere. You can have several of them, each of which generally is either read-only or read/write for you. Collaborating with others involves managing these remote repositories and pushing and pulling data to and from them when you need to share work.
-Managing remote repositories includes knowing how to add remote repositories, remove remotes that are no longer valid, manage various remote branches and define them as being tracked or not, and more. In this section, we’ll cover these remote-management skills.
+Каб мець магчымасьць сумеснай працы над якім-небудзь праектам, вам неабходна ведаць, як кіраваць аддаленымі сховішчамі. Аддаленыя сховішчы — гэта вэрсіі вашага праекту, якія захоўваюцца ў Інтэрнэце ці яшчэ дзе-небудзь у сетцы. Іх можа быць некалькі, кожнае зь якіх даступна вам ці толькі для чытаньня, ці для чытаньня й запісу. Супрацоўніцтва зь іншымі праграмістамі ўключае ў сябе кіраваньне гэтымі аддаленымі сховішчамі, даданьне й сьцягваньне даньняў зь іх, калі вы жадаеце падзяліцца вынікамі працы.
+Кіраваньне аддаленымі сховішчамі патрабуе наступных ведаў: дадаваць аддаленыя сховішчы, выдаляць тыя зь іх, якія больш не зьяўляюцца дзейнымі, кіраваць рознымі аддаленымі галінамі і вызначаць іх як адсочаныя ці не, і іншае. Гэты разьдзел зьмяшчае апісаньне гэтых "аддаленых" навыкаў.
 
 ### Showing Your Remotes ###
 

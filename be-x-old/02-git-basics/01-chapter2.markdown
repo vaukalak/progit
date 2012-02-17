@@ -778,17 +778,17 @@ Insert 18333fig0202.png
 
 Калі ў вас ёсьць галіна, якая сочыць за аддаленай галіной (гл. наступны разьдзел і *Главу 3*), то вы можаце выкарыстаць каманду `git pull` для аўтаматычнага сьцягваньня й зьліцьця даньняў з аддаленай галіны ў бягучую. Гэта магчыма будзе больш проста і зручна для вас. Прадвызначана, каманда `git clone` аўтаматычна ўсталёўвае вашу лякальную галіну master для адсочваньня за аддаленай master-галіны на сэрверы зь якога вы скланавалі сховішча (мяркуючы, што аддаленая master-галіна існуе). Запуск `git pull`, як правіла, сьцягвае даньні з сэрвера, зь якога вы скланавалі праект, і аўтаматычна спрабуе зьліць іх з кодам, над якім вы цяпер працуеце.
 
-### Pushing to Your Remotes ###
+### Адсыланьне зьменаў у аддаленае сховішча ###
 
-When you have your project at a point that you want to share, you have to push it upstream. The command for this is simple: `git push [remote-name] [branch-name]`. If you want to push your master branch to your `origin` server (again, cloning generally sets up both of those names for you automatically), then you can run this to push your work back up to the server:
+Калі ваш праект дасягае стадыі, калі ўзьнікае жаданьне падзяліцца напрацоўкамі, вы мусіце адправіць вашыя даньні ў галоўнае сховішча. Каманда для гэтага вельмі простая: `git push [remote-name] [branch-name]`. Калі вы жадаеце дадаць вашую master-галіну на сэрвер `origin` (скажу яшчэ раз, што кланаваньне ўсталёўвае гэткія назвы аўтаматычна), то вы можаце выканаць наступнае:
 
 	$ git push origin master
 
-This command works only if you cloned from a server to which you have write access and if nobody has pushed in the meantime. If you and someone else clone at the same time and they push upstream and then you push upstream, your push will rightly be rejected. You’ll have to pull down their work first and incorporate it into yours before you’ll be allowed to push. See *Chapter 3* for more detailed information on how to push to remote servers.
+Гэта каманда адпрацуе толькі тады, калі вы скланавалі сваё сховішча з сэрвера, у якім вы маеце правы на запіс і між тым больш ніхто не пасьпеў выканаць каманду push. Калі вы і нехта яшчэ зрабілі клон ў адзін той жа час, і вы вырашылі загрузіць вашыя абнаўленьні пазьней за іх, то ваш запрос будзе адхілены. Вам будзе неабходна спачатку сьцягнуць іхныя даньні, аб'яднаць з вашымі, і толькі пасьля гэтага вы зможаце выканаць `push`. Для больш падрабязнага апісаньня, як адпраўляць даньні ў аддаленае сховішча, чытайце *Главу 3*.
 
-### Inspecting a Remote ###
+### Вывучаем аддаленае сховішча ###
 
-If you want to see more information about a particular remote, you can use the `git remote show [remote-name]` command. If you run this command with a particular shortname, such as `origin`, you get something like this:
+Калі вы жадаеце ўбачыць больш інфармацыі пра пэўнае аддаленае сховішча, то вы можаце скарыстацца камандай `git remote show [remote-name]`. Калі вы запусьціце яе з скарочанай назвай сховішча, напрыклад origin, то пабачыце нешта на кшталт наступнага:
 
 	$ git remote show origin
 	* remote origin
@@ -799,9 +799,9 @@ If you want to see more information about a particular remote, you can use the `
 	    master
 	    ticgit
 
-It lists the URL for the remote repository as well as the tracking branch information. The command helpfully tells you that if you’re on the master branch and you run `git pull`, it will automatically merge in the master branch on the remote after it fetches all the remote references. It also lists all the remote references it has pulled down.
+Тут адлюстраваны URL аддаленага сховішча і інфармацыя пра адсочаныя галіны. Падказка тлумачыць што адбудзецца, калі вы выканаеце `git pull`. А адбудзецца аўтаматычнае зьліцьцё аддаленай master-галіны з лякальнай. Да таго ж, тут можна ўбачыць сьпіс ўсіх аддаленых спасылак, зь якіх ужываліся абнаўленьні.
 
-That is a simple example you’re likely to encounter. When you’re using Git more heavily, however, you may see much more information from `git remote show`:
+Гэта быў даволі просты прыклад. Калі вы выкарыстоўваеце Git больш інтэнсіўна, то, хутчэй за ўсё, вы ўбачыць значна больш інфармацыі:
 
 	$ git remote show origin
 	* remote origin
@@ -825,7 +825,7 @@ That is a simple example you’re likely to encounter. When you’re using Git m
 	  Local branch pushed with 'git push'
 	    master:master
 
-This command shows which branch is automatically pushed when you run `git push` on certain branches. It also shows you which remote branches on the server you don’t yet have, which remote branches you have that have been removed from the server, and multiple branches that are automatically merged when you run `git pull`.
+Гэтая каманда паказвае, якая менавіта галіна будзе адпраўлена на сэрвер, калі вы запускаеце `git push`. Таксама яна адлюстроўвае тыя галіны сэрвера, якіх у вас яшчэ няма, якія вы маеце, але былі выдалены з сэрвера, і сьпіс галін, у якія будуць зьліты даньні, калі вы выканаеце `git pull`.
 
 ### Removing and Renaming Remotes ###
 

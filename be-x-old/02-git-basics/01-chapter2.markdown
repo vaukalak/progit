@@ -827,38 +827,38 @@ Insert 18333fig0202.png
 
 Гэтая каманда паказвае, якая менавіта галіна будзе адпраўлена на сэрвер, калі вы запускаеце `git push`. Таксама яна адлюстроўвае тыя галіны сэрвера, якіх у вас яшчэ няма, якія вы маеце, але былі выдалены з сэрвера, і сьпіс галін, у якія будуць зьліты даньні, калі вы выканаеце `git pull`.
 
-### Removing and Renaming Remotes ###
+### Выдаленьне й перайменаваньне спасылак на сховішчы ###
 
-If you want to rename a reference, in newer versions of Git you can run `git remote rename` to change a remote’s shortname. For instance, if you want to rename `pb` to `paul`, you can do so with `git remote rename`:
+Калі вы жадаеце перайменаваць спасылку, то ў новых вэрсіях Git вы можаце выканаць `git remote rename`. Напрыклад, каб зьмяніць `pb` на `paul`, неабходна запусьціць наступную каманду:
 
 	$ git remote rename pb paul
 	$ git remote
 	origin
 	paul
 
-It’s worth mentioning that this changes your remote branch names, too. What used to be referenced at `pb/master` is now at `paul/master`.
+Варта адзначыць, што гэта таксама зьмяняе назву галін аддаленага сховішча. Калі раней трэба было выкарыстоўваць `pb/master`, то зараз — `paul/master`.
 
-If you want to remove a reference for some reason — you’ve moved the server or are no longer using a particular mirror, or perhaps a contributor isn’t contributing anymore — you can use `git remote rm`:
+Калі вы хочаце выдаліць спасылку (магчыма вы зьмянілі сэрвер, ці больш не выкарыстоўваеце пэўнае люстэрка, ці нейкі з удзельнікаў праекту перастаў ім займацца), то вы можаце скарыстацца камандай `git remote rm`:
 
 	$ git remote rm paul
 	$ git remote
 	origin
 
-## Tagging ##
+## Тэґаваньне ##
 
-Like most VCSs, Git has the ability to tag specific points in history as being important. Generally, people use this functionality to mark release points (`v1.0`, and so on). In this section, you’ll learn how to list the available tags, how to create new tags, and what the different types of tags are.
+Як і ў большасьці СКВ, Git мае магчымасьць адзначаць важныя моманты гісторыі праекту. Часьцей за ўсё іх выкарыстоўваюць для паметкі рэлізаў (`v1.0` і г.д.). У дадзеным разьдзеле вы даведаецеся як праглядзець сьпіс даступных тэґаў, як стварыць новыя і якія тыпы тэґаў існуюць.
 
-### Listing Your Tags ###
+### Прагляд вашых тэґаў ###
 
-Listing the available tags in Git is straightforward. Just type `git tag`:
+Праглядзець сьпіс даступных тэґаў вельмі лёгка. Проста надрукуйце `git tag`:
 
 	$ git tag
 	v0.1
 	v1.3
 
-This command lists the tags in alphabetical order; the order in which they appear has no real importance.
+Гэтая каманда адлюструе тэґі ў альфабэтным парадку. Парадак у якім тэґі ствараліся ня мае значэньня.
 
-You can also search for tags with a particular pattern. The Git source repo, for instance, contains more than 240 tags. If you’re only interested in looking at the 1.4.2 series, you can run this:
+Таксама можна шукаць тэґі з дапамогай шаблёнаў. Напрыклад, сховішча зыходных кодаў Git утрымлівае больш за 240 тэґаў. Калі вас цікавіць толькі вэрсія 1.4.2, вы можаце выканаць:
 
 	$ git tag -l 'v1.4.2.*'
 	v1.4.2.1

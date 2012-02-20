@@ -866,13 +866,13 @@ Insert 18333fig0202.png
 	v1.4.2.3
 	v1.4.2.4
 
-### Creating Tags ###
+### Стварэньне тэґаў ###
 
-Git uses two main types of tags: lightweight and annotated. A lightweight tag is very much like a branch that doesn’t change — it’s just a pointer to a specific commit. Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, e-mail, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that you create annotated tags so you can have all this information; but if you want a temporary tag or for some reason don’t want to keep the other information, lightweight tags are available too.
+Git выкарыстоўвае два асноўных тыпа тэґаў: легкаважны і анатаваны. Легкаважны тэґ вельмі падобны на галіну, якую нельга зьмяняць, — гэта проста паказальнік на пэўны каміт. У адрозьненьні ад яго, анатаваныя тэґі загружаюцца ў базу даньняў Git'а як паўнавартасныя аб'екты. Яны маюць кантрольную суму, імя стваральніка і яго пошту, дату, паведамленьне, і могуць быць падпісаны і правераны з дапамогай GNU Privacy Guard (GPG). Рэкамэндуецца захоўваць усю гэтую інфармацыю ў створаных тэґах, але калі вам патрэбны часовы тэґ, то лепш скарыстацца легкаважнымі тэґамі.
 
-### Annotated Tags ###
+### Анатаваныя тэґі ###
 
-Creating an annotated tag in Git is simple. The easiest way is to specify `-a` when you run the `tag` command:
+Стварыць анатаваны тэґ у Git не складана. Самы просты шлях — пазначыць `-a` у камандзе `tag`:
 
 	$ git tag -a v1.4 -m 'my version 1.4'
 	$ git tag
@@ -880,9 +880,9 @@ Creating an annotated tag in Git is simple. The easiest way is to specify `-a` w
 	v1.3
 	v1.4
 
-The `-m` specifies a tagging message, which is stored with the tag. If you don’t specify a message for an annotated tag, Git launches your editor so you can type it in.
+Опцыя `-m` адказвае за паведамленьне, якое будзе захавана разам з тэґам. Калі вы не пазначылі паведамленьне ў загадным радку, то Git адчыніць рэдактар, у якім вы можаце яго надрукаваць.
 
-You can see the tag data along with the commit that was tagged by using the `git show` command:
+Вы можаце пабачыць даньні тэґа разам з зьвесткамі пра каміт, на які тэґ спасылаецца, выкарыстаўшы каманду `git show`:
 
 	$ git show v1.4
 	tag v1.4
@@ -897,18 +897,18 @@ You can see the tag data along with the commit that was tagged by using the `git
 
 	    Merge branch 'experiment'
 
-That shows the tagger information, the date the commit was tagged, and the annotation message before showing the commit information.
+Тут мы бачым інфармацыю пра стваральніка тэґа, даньні адпаведнага каміту і паведамленьне над імі.
 
-### Signed Tags ###
+### Падпісаньне тэґаў ###
 
-You can also sign your tags with GPG, assuming you have a private key. All you have to do is use `-s` instead of `-a`:
+Вы можаце падпісаць вашыя тэґі пры дапамозе GPG (пры ўмове, што вы маеце прыватны ключ). Усё што вы мусіце зрабіць — замяніць опцыю `-a` на `-s`:
 
 	$ git tag -s v1.5 -m 'my signed 1.5 tag'
 	You need a passphrase to unlock the secret key for
 	user: "Scott Chacon <schacon@gee-mail.com>"
 	1024-bit DSA key, ID F721C45A, created 2009-02-09
 
-If you run `git show` on that tag, you can see your GPG signature attached to it:
+Калі вы запусьціце `git show` для гэтага тэґа, вы ўбачыце прымацаваны подпіс (signature):
 
 	$ git show v1.5
 	tag v1.5
@@ -930,7 +930,7 @@ If you run `git show` on that tag, you can see your GPG signature attached to it
 
 	    Merge branch 'experiment'
 
-A bit later, you’ll learn how to verify signed tags.
+Крыху пазьней, вы даведаецеся, як пацьвярджаць подпісы тэґаў.
 
 ### Lightweight Tags ###
 

@@ -882,7 +882,7 @@ Git выкарыстоўвае два асноўных тыпа тэґаў: ле
 
 Опцыя `-m` адказвае за паведамленьне, якое будзе захавана разам з тэґам. Калі вы не пазначылі паведамленьне ў загадным радку, то Git адчыніць рэдактар, у якім вы можаце яго надрукаваць.
 
-Вы можаце пабачыць даньні тэґа разам з зьвесткамі пра каміт, на які тэґ спасылаецца, выкарыстаўшы каманду `git show`:
+Вы можаце пабачыць даньні тэґу разам з зьвесткамі пра каміт, на які тэґ спасылаецца, выкарыстаўшы каманду `git show`:
 
 	$ git show v1.4
 	tag v1.4
@@ -897,7 +897,7 @@ Git выкарыстоўвае два асноўных тыпа тэґаў: ле
 
 	    Merge branch 'experiment'
 
-Тут мы бачым інфармацыю пра стваральніка тэґа, даньні адпаведнага каміту і паведамленьне над імі.
+Тут мы бачым інфармацыю пра стваральніка тэґу, даньні адпаведнага каміту і паведамленьне над імі.
 
 ### Падпісаньне тэґаў ###
 
@@ -908,7 +908,7 @@ Git выкарыстоўвае два асноўных тыпа тэґаў: ле
 	user: "Scott Chacon <schacon@gee-mail.com>"
 	1024-bit DSA key, ID F721C45A, created 2009-02-09
 
-Калі вы запусьціце `git show` для гэтага тэґа, вы ўбачыце прымацаваны подпіс (signature):
+Калі вы запусьціце `git show` для гэтага тэґу, вы ўбачыце прымацаваны подпіс (signature):
 
 	$ git show v1.5
 	tag v1.5
@@ -932,9 +932,9 @@ Git выкарыстоўвае два асноўных тыпа тэґаў: ле
 
 Крыху пазьней, вы даведаецеся, як пацьвярджаць подпісы тэґаў.
 
-### Lightweight Tags ###
+### Легкаважныя тэґі ###
 
-Another way to tag commits is with a lightweight tag. This is basically the commit checksum stored in a file — no other information is kept. To create a lightweight tag, don’t supply the `-a`, `-s`, or `-m` option:
+Другі шлях пазначыць каміт — гэта легкаважны тэґ. Гэта звычайная кантрольная сума каміту запісаная ў файл, больш ніякай іншай інфармацыі. Каб стварыць легкаважны тэґ, ня трэба ўжываць опцыяў `-a`, `-s` і `-m`:
 
 	$ git tag v1.4-lw
 	$ git tag
@@ -944,7 +944,7 @@ Another way to tag commits is with a lightweight tag. This is basically the comm
 	v1.4-lw
 	v1.5
 
-This time, if you run `git show` on the tag, you don’t see the extra tag information. The command just shows the commit:
+На гэты раз, калі вы запусьціце `git show`, вы ня ўбачыце дадатковай інфармацыі пра тэґ. Каманда адлюструе толькі каміт:
 
 	$ git show v1.4-lw
 	commit 15027957951b64cf874c3557a0f3547bd83b3ff6
@@ -954,9 +954,9 @@ This time, if you run `git show` on the tag, you don’t see the extra tag infor
 
 	    Merge branch 'experiment'
 
-### Verifying Tags ###
+### Пацьверджаньне тэґаў ###
 
-To verify a signed tag, you use `git tag -v [tag-name]`. This command uses GPG to verify the signature. You need the signer’s public key in your keyring for this to work properly:
+Каб пацьвердзіць подпіс тэґу, трэба скарыстацца `git tag -v [tag-name]`. Гэта каманда з дапамогай GPG правярае подпіс. Каб гэта зрабіць правільна, вам патрэбны адкрыты ключ аўтара подпісу.
 
 	$ git tag -v v1.4.2.1
 	object 883653babd8ee7ea23e6a5c392bb739348b1eb61
@@ -972,15 +972,15 @@ To verify a signed tag, you use `git tag -v [tag-name]`. This command uses GPG t
 	gpg:                 aka "[jpeg image of size 1513]"
 	Primary key fingerprint: 3565 2A26 2040 E066 C9A7  4A7D C0C6 D9A4 F311 9B9A
 
-If you don’t have the signer’s public key, you get something like this instead:
+Калі вы ня маце адкрытага ключа, то атрымаце прыкладна наступны вывад:
 
 	gpg: Signature made Wed Sep 13 02:08:25 2006 PDT using DSA key ID F3119B9A
 	gpg: Can't check signature: public key not found
 	error: could not verify the tag 'v1.4.2.1'
 
-### Tagging Later ###
+### Выстаўленьне тэґу на пэўным каміце ###
 
-You can also tag commits after you’ve moved past them. Suppose your commit history looks like this:
+Вы можаце ствараць тэґі для камітаў, якія вы ўжо даўно прайшлі. Напрыклад, ваша гісторыя камітаў выглядае наступным чынам:
 
 	$ git log --pretty=oneline
 	15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch 'experiment'
@@ -994,11 +994,11 @@ You can also tag commits after you’ve moved past them. Suppose your commit his
 	964f16d36dfccde844893cac5b347e7b3d44abbc commit the todo
 	8a5cbc430f1a9c3d00faaeffd07798508422908a updated readme
 
-Now, suppose you forgot to tag the project at `v1.2`, which was at the "updated rakefile" commit. You can add it after the fact. To tag that commit, you specify the commit checksum (or part of it) at the end of the command:
+Цяпер уявім, што вы забылі адзначыць тэґам вэрсію `v1.2`, каміт якой называецца "updated rakefile". Але вы можаце зрабіць гэта й зараз. Каб стварыць тэґ, неабходна пазначыць кантрольную суму (ці яго частку) адпаведнага каміту напрыканцы каманды:
 
 	$ git tag -a v1.2 9fceb02
 
-You can see that you’ve tagged the commit:
+Можна паглядзець на адзначаны каміт:
 
 	$ git tag
 	v0.1
@@ -1021,9 +1021,9 @@ You can see that you’ve tagged the commit:
 	    updated rakefile
 	...
 
-### Sharing Tags ###
+### Агульнадаступныя тэґі ###
 
-By default, the `git push` command doesn’t transfer tags to remote servers. You will have to explicitly push tags to a shared server after you have created them.  This process is just like sharing remote branches — you can run `git push origin [tagname]`.
+Прадвызначана, каманда `git push` не перасылае тэґі на аддаленыя сэрверы. Вы павінны самастойна адправіць тэґі на агульнадаступны сэрвер пасьля таго, як іх захаваеце. Гэта робіцца такім ж чынам, як і перасылка галін — трэба выканаць `git push origin [tagname]`.
 
 	$ git push origin v1.5
 	Counting objects: 50, done.
@@ -1033,7 +1033,7 @@ By default, the `git push` command doesn’t transfer tags to remote servers. Yo
 	To git@github.com:schacon/simplegit.git
 	* [new tag]         v1.5 -> v1.5
 
-If you have a lot of tags that you want to push up at once, you can also use the `--tags` option to the `git push` command.  This will transfer all of your tags to the remote server that are not already there.
+Калі ў вас шмат тэґаў, якія вы хочаце адаслаць разам, то скарыстайце опцыю `--tags`. Яна перашле на аддалены сэрвер ўсе вашыя тэґі, якіх там яшчэ няма.
 
 	$ git push origin --tags
 	Counting objects: 50, done.
@@ -1047,7 +1047,7 @@ If you have a lot of tags that you want to push up at once, you can also use the
 	 * [new tag]         v1.4-lw -> v1.4-lw
 	 * [new tag]         v1.5 -> v1.5
 
-Now, when someone else clones or pulls from your repository, they will get all your tags as well.
+Цяпер, калі нехта склануе ваша сховішча, то атрымае ўсе вашыя тэґі.
 
 ## Tips and Tricks ##
 

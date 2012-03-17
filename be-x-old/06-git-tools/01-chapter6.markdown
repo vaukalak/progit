@@ -1,6 +1,6 @@
 # Інструмэнты Git #
 
-На дадзены момант вы ведаеце большасьць штодзённых камандаў, якія вам спатрэбяцца для кіраваньня і падтрымкі Git-сховішча вашага зыходнага коду. Вы выканалі базавыя задачы па адсочваньню й камітаваньню файлаў, узбраіліся моцай прасторы індэксацыі і легкаважнасьцю галінаваньня й зьліцьця.
+На дадзены момант вы ведаеце большасьць штодзённых каманд, якія вам спатрэбяцца для кіраваньня і падтрымкі Git-сховішча вашага зыходнага коду. Вы выканалі базавыя задачы па адсочваньню й камітаваньню файлаў, узбраіліся моцай прасторы індэксацыі і легкаважнасьцю галінаваньня й зьліцьця.
 
 А зараз вы пазнаёміцеся зь некаторымі вельмі моцнымі інструмэтамі Git. Магчыма вы ня будзеце карыстацца імі кожны дзень, але ў пэўныя моманты яны могуць вам спатрэбіцца.
 
@@ -16,7 +16,7 @@ Git дазваляе вам праглядаць пэўныя каміты ці 
 
 Git дастаткова разумны каб высьветліць, які каміт вы маеце на ўвазе, калі друкуеце толькі некалькі першых знакаў, пры ўмове, што іх ня меньш за чатыры і, безумоўна, яны адназначна адпавядаюць адзінаму аб'екту ў бягучым сховішчы.
 
-Напрыклад, каб прагледзець пэўны каміт, выкажам здагадку, што вы запускаеце каманду `git log` і знаходзіце каміт, у якім вы дадалі нейкі пэўны функцыянал:
+Напрыклад, каб прагледзець пэўны каміт, запусьцім каманду `git log` і знойдзем каміт, у якім вы дадалі нейкі неабходны функцыянал:
 
 	$ git log
 	commit 734713bc047d87bf7eac9674765ae793478c50d3
@@ -38,39 +38,39 @@ Git дастаткова разумны каб высьветліць, які к
 
 	    added some blame and merge stuff
 
-In this case, choose `1c002dd....` If you `git show` that commit, the following commands are equivalent (assuming the shorter versions are unambiguous):
+У дадзеным выпадку абяром `1c002dd....`. Калі вы захочаце выканаць `git show` для гэтага каміту, то наступныя варыянты каманд эквівалентныя (мяркуецца, што скарочаныя вэрсіі адназначныя):
 
 	$ git show 1c002dd4b536e7479fe34593e72e6c6c1819e53b
 	$ git show 1c002dd4b536e7479f
 	$ git show 1c002d
 
-Git can figure out a short, unique abbreviation for your SHA-1 values. If you pass `--abbrev-commit` to the `git log` command, the output will use shorter values but keep them unique; it defaults to using seven characters but makes them longer if necessary to keep the SHA-1 unambiguous:
+Git можа вылічыць скарочаныя ўнікальныя значэньні хэшаў SHA-1. Калі вы скарыстаецеся опцыяй `--abbrev-commit` у камандзе `git log`, то ў вывадзе будуць адлюстраваны кароткія значэньні, дастатковыя, каб быць адназначнымі. Прадвызначана гэта сем першых знакаў, але, калі гэта неабходна, іх колькасьць павялічваецца:
 
 	$ git log --abbrev-commit --pretty=oneline
 	ca82a6d changed the version number
 	085bb3b removed unnecessary test code
 	a11bef0 first commit
 
-Generally, eight to ten characters are more than enough to be unique within a project. One of the largest Git projects, the Linux kernel, is beginning to need 12 characters out of the possible 40 to stay unique.
+Звычайна, сем-восем знакаў больш чым дастаткова для забяспячэньня адназначнасьці ў праекце. У адным з самых вялікіх праектаў Git, ядры Linux, толькі зьяўляецца неабходнасьць у хэшах велічынёй у 12 сымбаляў з 40 магчымых.
 
-### A SHORT NOTE ABOUT SHA-1 ###
+### Кароткая нататка пра SHA-1 ###
 
-A lot of people become concerned at some point that they will, by random happenstance, have two objects in their repository that hash to the same SHA-1 value. What then?
+Шмат людзей занепакоеныя тым, што адбудзецца, калі ў сховішчы зьявяцца два аб'екты з аднолькавымі хэшамі SHA-1. Што тады?
 
-If you do happen to commit an object that hashes to the same SHA-1 value as a previous object in your repository, Git will see the previous object already in your Git database and assume it was already written. If you try to check out that object again at some point, you’ll always get the data of the first object. 
+Калі вы закаміціце аб'ект, які мае такі самы хэш, як іншы раней створаны, то Git знойдзе яго ў базе даньняў вашага сховішча і палічыць, што ён ужо запісаны. Калі вы паспрабуеце атрымаць гэты аб'ект зноў, то вы заўсёды будзеце атрымліваць даньні першага аб'екта.
 
-However, you should be aware of how ridiculously unlikely this scenario is. The SHA-1 digest is 20 bytes or 160 bits. The number of randomly hashed objects needed to ensure a 50% probability of a single collision is about 2^80 (the formula for determining collision probability is `p = (n(n-1)/2) * (1/2^160))`. 2^80 is 1.2 x 10^24 or 1 million billion billion. That’s 1,200 times the number of grains of sand on the earth.
+Аднак, вы мусіце ведаць на колькі да сьмешнага малаверагодны такі сцэнар! Даўжыня SHA-1 складае 20 байтаў ці 160 бітаў. Неабходная колькасьць захэшаваных аб'ектаў, каб дасягнуць 50-адсодкавай верагоднасьці ўзьнікненьня калізіі, раўняецца `p = (n(n-1)/2) * (1/2^160))`. 2^80 гэта 1.2 x 10^24 ці 1 мільён мільярдаў мільярдаў. Гэта ў 1200 разоў болей за колькасьць пясчынак на зямлі.
 
-Here’s an example to give you an idea of what it would take to get a SHA-1 collision. If all 6.5 billion humans on Earth were programming, and every second, each one was producing code that was the equivalent of the entire Linux kernel history (1 million Git objects) and pushing it into one enormous Git repository, it would take 5 years until that repository contained enough objects to have a 50% probability of a single SHA-1 object collision. A higher probability exists that every member of your programming team will be attacked and killed by wolves in unrelated incidents on the same night.
+Гэты прыклад дае ўяўленьне таго, якія ўмовы неабходныя, каб атрымаць калізію SHA-1 хэшаў. Калі б усе 6.5 мільярдаў людзей на Зямлі былі праґрамістамі, і кожную сэкунду кожны зь іх вырабляў код эквівалентны ўсёй гісторыі ядра Linux (1 мільён об'ектаў Git) і адсылаў яго ў адзінае вялізарнае сховішча Git, то спатрэбілася б 5 год, пакуль сховішча стала ўтрымліваць аб'ектаў дастаткова, каб атрымаць 50% верагоднасьць адзінкавай калізіі. Большую верагоднасьць мае тое, што кожнага сябра вашай каманды распрацоўнікаў атакуе і заб'е воўк у незьвязаных выпадках у адну ноч.
 
-### Branch References ###
+### Спасылкі на галіны ###
 
-The most straightforward way to specify a commit requires that it have a branch reference pointed at it. Then, you can use a branch name in any Git command that expects a commit object or SHA-1 value. For instance, if you want to show the last commit object on a branch, the following commands are equivalent, assuming that the `topic1` branch points to `ca82a6d`:
+Самы просты спосаб азначыць патрэбны каміт, гэта калі на яго спасылаецца галіна. Вы можаце выкарыстоўваць імя галіны ў любых камандах Git, якія патрабуюць указаць аб'ект каміту ці значэньне SHA-1. У выпадку, калі вы жадаеце праглядзець апошні каміт галіны, наступныя каманды будуць эквівалентныя (мяркуецца, што галіна `topic1` мае хэш `ca82a6d`):
 
 	$ git show ca82a6dff817ec66f44342007202690a93763949
 	$ git show topic1
 
-If you want to see which specific SHA a branch points to, or if you want to see what any of these examples boils down to in terms of SHAs, you can use a Git plumbing tool called `rev-parse`. You can see Chapter 9 for more information about plumbing tools; basically, `rev-parse` exists for lower-level operations and isn’t designed to be used in day-to-day operations. However, it can be helpful sometimes when you need to see what’s really going on. Here you can run `rev-parse` on your branch.
+Калі вы хочаце убачыць SHA-код на які спасылаеца галіна, ці — поўны хэш замест скарочанага, то вы можаце скарыстацца адмысловым інструмэнтам Git `rev-parse`. Больш падрабязна пра (plumbing) інструмэнты можна пачытаць у *Главе 9*. У асноўным, `rev-parse` выкарыстоўваецца для нізкаўзроўневых апэрацый, і ён ня быў распрацаваны для штодзённых пратрэб. Аднак, ён можа быць карыстны, калі вам патрэбна ўбачыць сапраўдны стан рэчаў. Цяпер паспрабуйце ўжыць `rev-parse` да вашай галіны.
 
 	$ git rev-parse topic1
 	ca82a6dff817ec66f44342007202690a93763949

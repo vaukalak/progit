@@ -75,11 +75,11 @@ Git можа вылічыць скарочаныя ўнікальныя знач
 	$ git rev-parse topic1
 	ca82a6dff817ec66f44342007202690a93763949
 
-### RefLog Shortnames ###
+### Скароты RefLog ###
 
-One of the things Git does in the background while you’re working away is keep a reflog — a log of where your HEAD and branch references have been for the last few months.
+Адна з рэчаў, якую робіць Git у фоне, пакуль вы працуеце, — гэта захаваньне лоґу спасылак, якім адпавядалі HEAD і галіны на працягу апошніх некалькіх месяцаў.
 
-You can see your reflog by using `git reflog`:
+Вы можаце ўбачыць спасылачны лоґ з дамогай каманды `git reflog`:
 
 	$ git reflog
 	734713b... HEAD@{0}: commit: fixed refs handling, added gc auto, updated
@@ -90,11 +90,11 @@ You can see your reflog by using `git reflog`:
 	1c36188... HEAD@{5}: rebase -i (squash): updating HEAD
 	7e05da5... HEAD@{6}: rebase -i (pick): updating HEAD
 
-Every time your branch tip is updated for any reason, Git stores that information for you in this temporary history. And you can specify older commits with this data, as well. If you want to see the fifth prior value of the HEAD of your repository, you can use the `@{n}` reference that you see in the reflog output:
+Пасьля кожнага абнаўленьня вашай галіны, Git захоўвае дадзеную інфармацыю ў гэтай часовай гісторыі, і вы можаце скарыстацца ёй потым. Калі вы жадаеце ўбачыць якае значэньне меў HEAD пяць крокаў назад, вы мусіце спаслацца на `@{n}`, як гэта выглядае ў вывадзе каманды `reflog`:
 
 	$ git show HEAD@{5}
 
-You can also use this syntax to see where a branch was some specific amount of time ago. For instance, to see where your `master` branch was yesterday, you can type
+Таксама вы можаце выкарыстоўваць гэты сынтакс, каб убачыць дзе была галіна некаторы час назад. Для прыкладу, каб паглядзець дзе была вашая `master`-галіна ўчора, вы можаце надрукаваць наступнае:
 
 	$ git show master@{yesterday}
 

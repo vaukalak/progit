@@ -4,7 +4,7 @@
 
 ## Спасылкі ##
 
-Тут можна знайсьці пераклады камп'ютарных тэрмінаў (і іншых):
+Тут можна знайсьці пераклады камп’ютарных тэрмінаў (і іншых):
 
  * [http://kamputerm.org/](http://kamputerm.org/)
  * [http://kamputerm.livejournal.com/](http://kamputerm.livejournal.com/)

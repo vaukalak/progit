@@ -98,9 +98,9 @@ Git можа вылічыць скарочаныя ўнікальныя знач
 
 	$ git show master@{yesterday}
 
-That shows you where the branch tip was yesterday. This technique only works for data that’s still in your reflog, so you can’t use it to look for commits older than a few months.
+Вы ўбачыце дзе была вяршыня галіны ўчора. Гэтая тэхніка працуе толькі для даньняў, якія захоўваюцца ў reflog, таму вы ня зможаце выкарыстацць яе для пошуку камітаў узростам у колькі месяцаў.
 
-To see reflog information formatted like the `git log` output, you can run `git log -g`:
+Каб убачыць reflog-зьвесткі фарматаваныя як у `git log`, можна запусьціць `git log -g`:
 
 	$ git log -g master
 	commit 734713bc047d87bf7eac9674765ae793478c50d3
@@ -119,24 +119,24 @@ To see reflog information formatted like the `git log` output, you can run `git 
 
 	    Merge commit 'phedders/rdocs'
 
-It’s important to note that the reflog information is strictly local — it’s a log of what you’ve done in your repository. The references won’t be the same on someone else’s copy of the repository; and right after you initially clone a repository, you'll have an empty reflog, as no activity has occurred yet in your repository. Running `git show HEAD@{2.months.ago}` will work only if you cloned the project at least two months ago — if you cloned it five minutes ago, you’ll get no results.
+Вельмі важна знаць, што reflog-зьвесткі заўсёды лякальныя — гэта лоґ таго, што вы ўжо зрабілі ў вашым сховішчы. reflog-спасылкі не будуць супадаць з любой іншай копіяй сховішча, і адразу пасьля кланаваньня, вы будзеце мець пусты спасылкавы лоґ, бо яшчэ не адбылося аніякіх дзеяньняў у менавіта вашым сховішчы. Выкананьне `git show HEAD@{2.months.ago}` будзе працаваць толькі калі вы скланавалі праект не менш за два месяцы таму. Калі ж вы скаланавалі яго пяць хвілін таму, вы нічога ня ўбачыце.
 
-### Ancestry References ###
+### Паходжаньне спасылак ###
 
-The other main way to specify a commit is via its ancestry. If you place a `^` at the end of a reference, Git resolves it to mean the parent of that commit.
-Suppose you look at the history of your project:
+Яшчэ адзін мэтад вызначыць каміт — празь яго паходжаньне. Калі вы паставіце знак `^` напрыканцы спасылкі, Git прыме гэта як спасылку на бацькоўскі каміт.
+Уявім, што вы глядзіце на гісторыю свайго праекту:
 
 	$ git log --pretty=format:'%h %s' --graph
 	* 734713b fixed refs handling, added gc auto, updated tests
 	*   d921970 Merge commit 'phedders/rdocs'
-	|\  
+	|\
 	| * 35cfb2b Some rdoc changes
 	* | 1c002dd added some blame and merge stuff
-	|/  
+	|/
 	* 1c36188 ignore *.gem
 	* 9b29157 add open3_detach to gemspec file list
 
-Then, you can see the previous commit by specifying `HEAD^`, which means "the parent of HEAD":
+Далей, вы можаце ўбачыць папярэдні каміт пазначаны як `HEAD^`, які значыць „бацька каміта HEAD“:
 
 	$ git show HEAD^
 	commit d921970aadf03b3cf0e71becdaab3147ba71cdef
@@ -146,6 +146,7 @@ Then, you can see the previous commit by specifying `HEAD^`, which means "the pa
 
 	    Merge commit 'phedders/rdocs'
 
+Таксама можна вызначыць каміт зь лікам пасьля `^`. Напрыклад, `d921970^2` значць „бацька бацькі каміта d921970“. Такі сынтакс карысны толькі для камітаў зьліцьця, якія маюць болей аднаго бацькі. Першы — гэта
 You can also specify a number after the `^` — for example, `d921970^2` means "the second parent of d921970." This syntax is only useful for merge commits, which have more than one parent. The first parent is the branch you were on when you merged, and the second is the commit on the branch that you merged in:
 
 	$ git show d921970^

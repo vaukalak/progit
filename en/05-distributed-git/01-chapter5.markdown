@@ -24,12 +24,12 @@ This workflow is attractive to a lot of people because it’s a paradigm that ma
 
 Because Git allows you to have multiple remote repositories, it’s possible to have a workflow where each developer has write access to their own public repository and read access to everyone else’s. This scenario often includes a canonical repository that represents the "official" project. To contribute to that project, you create your own public clone of the project and push your changes to it. Then, you can send a request to the maintainer of the main project to pull in your changes. They can add your repository as a remote, test your changes locally, merge them into their branch, and push back to their repository. The process works as follow (see Figure 5-2):
 
-1.	The project maintainer pushes to their public repository.
-2.	A contributor clones that repository and makes changes.
-3.	The contributor pushes to their own public copy.
-4.	The contributor sends the maintainer an e-mail asking them to pull changes.
-5.	The maintainer adds the contributor’s repo as a remote and merges locally.
-6.	The maintainer pushes merged changes to the main repository.
+1. The project maintainer pushes to their public repository.
+2. A contributor clones that repository and makes changes.
+3. The contributor pushes to their own public copy.
+4. The contributor sends the maintainer an e-mail asking them to pull changes.
+5. The maintainer adds the contributor’s repo as a remote and merges locally.
+6. The maintainer pushes merged changes to the main repository.
 
 Insert 18333fig0502.png 
 Figure 5-2. Integration-manager workflow.
@@ -40,15 +40,15 @@ This is a very common workflow with sites like GitHub, where it’s easy to fork
 
 This is a variant of a multiple-repository workflow. It’s generally used by huge projects with hundreds of collaborators; one famous example is the Linux kernel. Various integration managers are in charge of certain parts of the repository; they’re called lieutenants. All the lieutenants have one integration manager known as the benevolent dictator. The benevolent dictator’s repository serves as the reference repository from which all the collaborators need to pull. The process works like this (see Figure 5-3):
 
-1.	Regular developers work on their topic branch and rebase their work on top of master. The master branch is that of the dictator.
-2.	Lieutenants merge the developers’ topic branches into their master branch.
-3.	The dictator merges the lieutenants’ master branches into the dictator’s master branch.
-4.	The dictator pushes their master to the reference repository so the other developers can rebase on it.
+1. Regular developers work on their topic branch and rebase their work on top of master. The master branch is that of the dictator.
+2. Lieutenants merge the developers’ topic branches into their master branch.
+3. The dictator merges the lieutenants’ master branches into the dictator’s master branch.
+4. The dictator pushes their master to the reference repository so the other developers can rebase on it.
 
 Insert 18333fig0503.png  
 Figure 5-3. Benevolent dictator workflow.
 
-This kind of workflow isn’t common but can be useful in very big projects or in highly hierarchical environments, because as it allows the project leader (the dictator) to delegate much of the work and collect large subsets of code at multiple points before integrating them.
+This kind of workflow isn’t common but can be useful in very big projects or in highly hierarchical environments, as it allows the project leader (the dictator) to delegate much of the work and collect large subsets of code at multiple points before integrating them.
 
 These are some commonly used workflows that are possible with a distributed system like Git, but you can see that many variations are possible to suit your particular real-world workflow. Now that you can (I hope) determine which workflow combination may work for you, I’ll cover some more specific examples of how to accomplish the main roles that make up the different flows.
 
@@ -230,7 +230,7 @@ She can merge either `origin/master` or `issue54` first — they’re both upstr
 	 lib/simplegit.rb |    6 +++++-
 	 2 files changed, 6 insertions(+), 1 deletions(-)
 
-No problems occur; as you can see it, was a simple fast-forward. Now Jessica merges in John’s work (`origin/master`):
+No problems occur; as you can see, it was a simple fast-forward. Now Jessica merges in John’s work (`origin/master`):
 
 	$ git merge origin/master
 	Auto-merging lib/simplegit.rb
@@ -359,12 +359,12 @@ Finally, she merges John’s work into her own `featureA` branch:
 Jessica wants to tweak something, so she commits again and then pushes this back up to the server:
 
 	$ git commit -am 'small tweak'
-	[featureA ed774b3] small tweak
+	[featureA 774b3ed] small tweak
 	 1 files changed, 1 insertions(+), 1 deletions(-)
 	$ git push origin featureA
 	...
 	To jessica@githost:simplegit.git
-	   3300904..ed774b3  featureA -> featureA
+	   3300904..774b3ed  featureA -> featureA
 
 Jessica’s commit history now looks something like Figure 5-13.
 
@@ -481,7 +481,7 @@ The workflow is similar to the previous use case — you create topic branches f
 	$ (work)
 	$ git commit
 
-Now you have two commits that you want to send to the mailing list. You use `git format-patch` to generate the mbox-formatted files that you can e-mail to the list — it turns each commit into an e-mail message with the first line of the commit message as the subject and the rest of the message plus the patch that the commit introduces as the body. The nice thing about this is that applying a patch from an e-mail generated with `format-patch` preserves all the commit information properly, as you’ll see more of in the next section when you apply these commits:
+Now you have two commits that you want to send to the mailing list. You use `git format-patch` to generate the mbox-formatted files that you can e-mail to the list — it turns each commit into an e-mail message with the first line of the commit message as the subject and the rest of the message plus the patch that the commit introduces as the body. The nice thing about this is that applying a patch from an e-mail generated with `format-patch` preserves all the commit information properly, as you’ll see more of in the next section when you apply these patches:
 
 	$ git format-patch -M origin/master
 	0001-add-limit-to-log-function.patch
@@ -576,7 +576,7 @@ As you’ll remember, you can create the branch based off your master branch lik
 
 	$ git branch sc/ruby_client master
 
-Or, if you want to also switch to it immediately, you can use the `checkout -b` option:
+Or, if you want to also switch to it immediately, you can use the `checkout -b` command:
 
 	$ git checkout -b sc/ruby_client master
 

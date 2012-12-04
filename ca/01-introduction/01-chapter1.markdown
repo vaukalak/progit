@@ -1,6 +1,6 @@
-# Començem #
+# ComenÃ§em #
 
-Aquest capítol tracta com iniciar-se amb Git. Començarem explicant alguns conceptes relatius a les eines de control de versions, seguirem amb com instal·lar Git al nostre ordinador i finalment com configurar-lo per a treballar-hi. Al final d'aquest capítol, hauríes d'entendre el perquè de Git, perquè és recomanable utilitzar-lo i amb les bases preparades per a començar.
+Aquest capÃ­tol tracta com iniciar-se amb Git. ComenÃ§arem explicant alguns conceptes relatius a les eines de control de versions, seguirem amb com instalÂ·lar Git al nostre ordinador i finalment com configurar-lo per a treballar-hi. Al final d'aquest capÃ­tol, haurÃ­es d'entendre el perquÃ¨ de Git, perquÃ¨ Ã©s recomanable utilitzar-lo i amb les bases preparades per a comenÃ§ar.
 
 ## Control de Versions ##
 
@@ -112,9 +112,9 @@ The staging area is a simple file, generally contained in your Git directory, th
 
 The basic Git workflow goes something like this:
 
-1.	You modify files in your working directory.
-2.	You stage the files, adding snapshots of them to your staging area.
-3.	You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
+1. You modify files in your working directory.
+2. You stage the files, adding snapshots of them to your staging area.
+3. You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
 
 If a particular version of a file is in the git directory, itâ€™s considered committed. If itâ€™s modified but has been added to the staging area, it is staged. And if it was changed since it was checked out but has not been staged, it is modified. In Chapter 2, youâ€™ll learn more about these states and how you can either take advantage of them or skip the staged part entirely.
 

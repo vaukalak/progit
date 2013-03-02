@@ -38,7 +38,7 @@ Pokud si chcete například prohlédnout konkrétní revizi, řekněme, že spus
 
 	    added some blame and merge stuff
 
-V tomto případě vyberte `1c002dd...`. Pokud chcete na revizi použít příkaz `git show`, budou všechny následující příkazy ekvivalentní (za předpokladu, že jsou zkrácené verze jednoznačné):
+V tomto případě vyberte `1c002dd....`. Pokud chcete na revizi použít příkaz `git show`, budou všechny následující příkazy ekvivalentní (za předpokladu, že jsou zkrácené verze jednoznačné):
 
 	$ git show 1c002dd4b536e7479fe34593e72e6c6c1819e53b
 	$ git show 1c002dd4b536e7479f
@@ -191,7 +191,7 @@ Nyní, když umíte určit jednotlivé revize, podíváme se, jak lze určovat c
 Nejčastěji se při označení intervalu používá dvojtečková syntax. Pomocí ní systému Git v podstatě říkáte, aby uvažoval celý interval revizí, které jsou dostupné z jedné revize, ale nejsou dostupné z jiné. Předpokládejme tedy, že máte historii revizí jako na obrázku 6-1.
 
 Insert 18333fig0601.png
-Obrázek 6-1. Příklad historie revizí pro výběr intervalu
+Figure 6-1. Příklad historie revizí pro výběr intervalu
 
 Vy chcete vidět, co všechno obsahuje vaše experimentální větev, kterou jste ještě nezačlenili do hlavní větve. Pomocí výrazu `master..experiment` můžete systému Git zadat příkaz, aby vám zobrazil log právě s těmito revizemi, doslova „všemi revizemi dostupnými z větve experiment a nedostupnými z hlavní větve“. V zájmu stručnosti a názornosti použiji v těchto příkladech místo skutečného výstupu logu písmena objektů revizí z diagramu v pořadí, jak by se zobrazily:
 
@@ -393,6 +393,23 @@ V tomto se nabízí celá řada možností. Zadáte-li znak `?`, zobrazí se sez
 	e - manually edit the current hunk
 	? - print help
 
+V českém překladu:
+
+	Připravit tento soubor změn [y,n,a,d,/,j,J,g,e,?]? ?
+	y - připravit soubor změn k zapsání
+	n - nepřipravovat soubor změn k zapsání
+	a - připravit tento soubor změn i všechny ostatní komplexy v souboru
+	d - nepřipravovat tento soubor změn ani žádné další komplexy v souboru
+	g - vybrat soubor změn, k němuž má systém přejít
+	/ - najít soubor změn odpovídající danému regulárnímu výrazu
+	j - nechat tento soubor změn nerozhodnutý, zobrazit další nerozhodnutý
+	J - nechat tento soubor změn nerozhodnutý, zobrazit další komplex
+	j - nechat tento soubor změn nerozhodnutý, zobrazit předchozí nerozhodnutý
+	J - nechat tento soubor změn nerozhodnutý, zobrazit předchozí komplex
+	s - rozdělit aktuální soubor změn do menších komplexů
+	e - ručně editovat aktuální soubor změn
+	? - nápověda
+
 Chcete-li připravit k zapsání jednotlivé komplexy, většinou zadáte `y` nebo `n`. Přesto se vám může někdy hodit i možnost připravit všechny komplexy v určitých souborech nebo přeskočení komplexu, k němuž se vrátíte později. Připravíte-li k zapsání jednu část souboru a druhou nikoli, bude výstup příkazu status vypadat asi takto:
 
 	What now> 1
@@ -422,7 +439,7 @@ Pro názornost uvažujme situaci, že ve svém projektu začnete pracovat na ně
 	#
 	#      modified:   index.html
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   lib/simplegit.rb
@@ -453,7 +470,7 @@ V tomto případě byly už dříve provedeny dva další odklady, a máte tak k
 
 	$ git stash apply
 	# On branch master
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   index.html
@@ -471,7 +488,7 @@ Změny byly znovu aplikovány na vaše soubory, ale soubor, který jste předtí
 	#
 	#      modified:   index.html
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   lib/simplegit.rb
@@ -517,7 +534,7 @@ Jestliže odložíte část své práce, necháte ji určitou dobu v zásobníku
 	#
 	#      modified:   index.html
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   lib/simplegit.rb
@@ -700,7 +717,7 @@ Toto je opravdu velmi častá situace. Někdo příkazem `git add .` bezmyšlenk
 	Rewrite 6b9b3cf04e7c5686a9cb838c3f36a8cb6a0fc2bd (21/21)
 	Ref 'refs/heads/master' was rewritten
 
-Parametr `--tree-filter` spustí zadaný příkaz po každém checkoutu projektu a znovu zapíše jeho výsledky. V tomto případě odstraníte soubor s názvem passwords.txt ze všech snímků, ať v nich existuje, nebo neexistuje. Chcete-li odstranit všechny nedopatřením zapsané záložní soubory editoru, můžete spustit zhruba toto: `git filter-branch --tree-filter 'rm -f *~' HEAD`.
+Parametr `--tree-filter` spustí zadaný příkaz po každém checkoutu projektu a znovu zapíše jeho výsledky. V tomto případě odstraníte soubor s názvem passwords.txt ze všech snímků, ať v nich existuje, nebo neexistuje. Chcete-li odstranit všechny nedopatřením zapsané záložní soubory editoru, můžete spustit zhruba toto: `git filter-branch --tree-filter "rm -f *~" HEAD`.
 
 Uvidíte, jak Git přepisuje stromy a revize a poté přemístí ukazatel větve na konec. Většinou se vyplatí provádět toto všechno v testovací větvi a k tvrdému resetu hlavní větve přistoupit až poté, co se ujistíte, že výsledek odpovídá vašim očekáváním. Chcete-li spustit příkaz `filter-branch` na všech větvích, zadejte k příkazu parametr `--all`.
 
@@ -941,7 +958,7 @@ Váš podadresář `rack` je nyní přesně ve stejném stavu, jako když jste p
 	 1 files changed, 1 insertions(+), 1 deletions(-)
 	[master*]$ git status
 	# On branch master
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#   (use "git checkout -- <file>..." to discard changes in working directory)
 	#
@@ -1124,4 +1141,3 @@ Popřípadě chcete-li porovnat, co je ve vašem podadresáři `rack`, s tím, c
 ## Shrnutí ##
 
 V této kapitole jste poznali několik pokročilých nástrojů umožňujících preciznější manipulaci s revizemi a oblastí připravených změn. Vyskytnou-li se jakékoli problémy, měli byste být schopni snadno odhalit závadnou revizi, kdo je jejím autorem a kdy byla zapsána. Chcete-li ve svém projektu využívat subprojekty, znáte nyní několik způsobů, jak to provést. V této chvíli byste měli v systému Git zvládat většinu úkonů, které se běžně používají na příkazovém řádku, a neměly by vám činit větší potíže.
-

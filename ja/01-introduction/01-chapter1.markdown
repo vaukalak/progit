@@ -159,7 +159,7 @@ Gitをインストールするためには、Gitが依存するライブラリ�
 
 もしくは、もしUbuntuのようなDebianベースのディストリュビューションを使っているのであれば、apt-getをやってみましょう：
 
-	$ apt-get install git-core
+	$ apt-get install git
 
 ### Macにインストール ###
 
@@ -168,7 +168,7 @@ MacにGitをインストールするには2つの簡単な方法があります�
 	http://code.google.com/p/git-osx-installer
 
 Insert 18333fig0107.png 
-Figure 1-7. Git OS X installer
+図 1-7. Git OS X installer
 
 もう一つの主要な方法は、MacPorts (`http://www.macports.org`) からGitをインストールすることです。MacPortsをインストールした状態であれば、Gitを以下のようにインストールできます。
 
@@ -178,9 +178,9 @@ Figure 1-7. Git OS X installer
 
 ### Windowsにインストール ###
 
-WindowsにGitをインストールするのはとても簡単です。msysGitプロジェクトは、より簡単なインストール手続きの一つを備えています。Google Codeのページから、単純にインストーラーのexeファイルをダウンロードをし、実行してください：
+WindowsにGitをインストールするのはとても簡単です。msysGitプロジェクトは、より簡単なインストール手続きの一つを備えています。GitHubのページから、単純にインストーラーのexeファイルをダウンロードをし、実行してください：
 
-	http://code.google.com/p/msysgit
+	http://msysgit.github.com/
 
 インストール後、コマンドライン版（後で役に立つSSHクライアントを含む）とスタンダードGUI版の両方を使う事ができます。
 

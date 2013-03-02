@@ -128,7 +128,7 @@ Pokud byste rádi nastavili přesněji jak budou zvýrazněny různé příkazy 
 
 Chcete-li sami nastavit jednotlivé barvy, mají všechny tyto parametry navíc dílčí nastavení, které můžete použít k určení konkrétních barev pro jednotlivé části výstupu. Budete-li chtít nastavit například meta informace ve výpisu příkazu diff tak, aby měly modré popředí, černé pozadí a tučné písmo, můžete použít příkaz:
 
-	$ git config --global color.diff.meta “blue black bold”
+	$ git config --global color.diff.meta "blue black bold"
 
 U barev lze zadávat tyto hodnoty: normal (normální), black (černá), red (červená), green (zelená), yellow (žlutá), blue (modrá), magenta (purpurová), cyan (azurová) nebo white (bílá). Pokud chcete použít atribut, jakým bylo v předchozím příkladu například tučné písmo, můžete vybírat mezi bold (tučné), dim (tlumené), ul (podtržené), blink (blikající) a reverse (obrácené).
 
@@ -190,7 +190,7 @@ Až dokončíte celé nastavení, můžete spustit příkaz diff, např.:
 Výstup příkazu diff se nezobrazí na příkazovém řádku, ale Git spustí program P4Merge v podobě, jak je zachycen na obrázku 7-1.
 
 Insert 18333fig0701.png
-Obrázek 7-1. P4Merge
+Figure 7-1. P4Merge
 
 Jestliže se pokusíte sloučit dvě větve a dojde při tom ke konfliktu, můžete spustit příkaz `git mergetool`. Příkaz spustí program P4Merge, v němž budete moci v grafickém uživatelském rozhraní konflikt vyřešit.
 
@@ -419,7 +419,7 @@ Pokud nahradíte některý z obrázků ve svém projektu a spustíte příkaz `g
 	@@ -1,12 +1,12 @@
 	 ExifTool Version Number         : 7.74
 	-File Size                       : 70 kB
-	-File Modification Date/Time     : 2009:04:21 07:02:45-07:00
+	-File Modification Date/Time     : 2009:04:17 10:12:35-07:00
 	+File Size                       : 94 kB
 	+File Modification Date/Time     : 2009:04:21 07:02:43-07:00
 	 File Type                       : PNG
@@ -454,10 +454,10 @@ Tento výsledek má však omezené použití. Pokud nahradíte klíčové slovo 
 Jak zjistíte, můžete pro substituce v souborech určených k zapsání/checkoutu napsat i vlastní filtry. Jedná se o filtry clean a smudge. V souboru `.gitattributes` můžete určit filtr pro konkrétní umístění a nastavit skripty, jimiž budou zpracovány soubory těsně před jejich zapsáním („clean“ – viz obrázek 7-2) a těsně před checkoutem („smudge“ – viz obrázek 7-3). Tyto filtry lze nastavit k různým šikovným úkonům.
 
 Insert 18333fig0702.png
-Obrázek 7-2. Filtr smudge spuštěný při checkoutu – git checkout
+Figure 7-2. Filtr smudge spuštěný při checkoutu – git checkout
 
 Insert 18333fig0703.png
-Obrázek 7-3. Filtr clean spuštěný při přípravě souborů k zapsání – git add
+Figure 7-3. Filtr clean spuštěný při přípravě souborů k zapsání – git add
 
 Původní zpráva k revizi s touto funkcí uvádí jednoduchý příklad, jak můžete před zapsáním prohnat veškeré vaše céčkové zdrojové texty programem `indent`. Tuto možnost lze aplikovat nastavením atributu `filter` v souboru `.gitattributes` tak, aby přefiltroval soubory `*.c` filtrem pro úpravu odsazování:
 
@@ -917,7 +917,7 @@ Jako příklad uvedeme skript pre-rebase, který bude toto pravidlo kontrolovat.
 	target_shas.each do |sha|
 	  remote_refs.each do |remote_ref|
 	    shas_pushed = `git rev-list ^#{sha}^@ refs/remotes/#{remote_ref}`
-	    if shas_pushed.split(“\n”).include?(sha)
+	    if shas_pushed.split("\n").include?(sha)
 	      puts "[POLICY] Commit #{sha} has already been pushed to #{remote_ref}"
 	      exit 1
 	    end
@@ -935,4 +935,3 @@ Největší nevýhodou tohoto postupu je, že může být velmi pomalý a není 
 ## Shrnutí ##
 
 V sedmé kapitole jste se naučili základní způsoby, jak přizpůsobit klienta a server systému Git tak, aby nejlépe odpovídali potřebám vašeho pracovního postupu a vašich projektů. Poznali jste všechny druhy konfiguračního nastavení, atributy nastavované pomocí souborů a dokonce i zásuvné moduly. V neposlední řadě jste sestavili exemplární server, který si sám dokáže vynutit vámi předepsané standardy. Nyní byste měli systém Git bez potíží nastavit téměř na jakýkoli pracovní postup, který si vysníte.
-

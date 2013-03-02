@@ -11,11 +11,17 @@ http://tinyurl.com/amazonprogit
 
 # Making Ebooks
 
-On Fedora you can run something like this::
+On Fedora (16 and later) you can run something like this::
 
-    $ yum install ruby calibre rubygems ruby-devel rubygem-ruby-debug 
-    $ gem install rdiscount
+    $ yum install ruby calibre rubygems ruby-devel rubygem-ruby-debug rubygem-rdiscount
     $ makeebooks en  # will produce a mobi
+
+On MacOS you can do like this::
+	
+1. INSTALL ruby and rubygems
+2. `$ gem install rdiscount`
+3. DOWNLOAD Calibre for MacOS and install command line tools
+4. `$ makeebooks zh` #will produce a mobi
 
 # Errata
 

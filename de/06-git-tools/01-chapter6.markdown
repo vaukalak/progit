@@ -1,5 +1,4 @@
 # Git Tools #
-# Git Tools #
 
 By now, you’ve learned most of the day-to-day commands and workflows that you need to manage or maintain a Git repository for your source code control.
 You’ve accomplished the basic tasks of tracking and committing files, and you’ve harnessed the power of the staging area and lightweight topic branching and merging.
@@ -565,7 +564,7 @@ To demonstrate, you’ll go into your project and start working on a couple of f
 	#
 	#      modified:   index.html
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   lib/simplegit.rb
@@ -581,7 +580,7 @@ Um dies zu demonstrieren, gehst du in dein Projekt und beginnst an ein paar Date
 	#
 	#      modified:   index.html
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   lib/simplegit.rb
@@ -618,7 +617,7 @@ In this case, two stashes were done previously, so you have access to three diff
 
 	$ git stash apply
 	# On branch master
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   index.html
@@ -636,7 +635,7 @@ The changes to your files were reapplied, but the file you staged before wasn’
 	#
 	#      modified:   index.html
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   lib/simplegit.rb
@@ -665,7 +664,7 @@ If you stash some work, leave it there for a while, and continue on the branch f
 	#
 	#      modified:   index.html
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   lib/simplegit.rb
@@ -1089,7 +1088,7 @@ Now your `rack` subdirectory is at the exact state it was in when you committed 
 	 1 files changed, 1 insertions(+), 1 deletions(-)
 	[master*]$ git status
 	# On branch master
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#   (use "git checkout -- <file>..." to discard changes in working directory)
 	#
@@ -1168,7 +1167,7 @@ Switching branches with submodules in them can also be tricky. If you create a n
 	$ git status
 	# On branch master
 	# Untracked files:
-	#   (use "git add f<ile>..." to include in what will be committed)
+	#   (use "git add <file>..." to include in what will be committed)
 	#
 	#      rack/
 

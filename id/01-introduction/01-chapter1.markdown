@@ -157,7 +157,7 @@ Jika anda ingin menginstall Git di Linux menggunakan installer biner, anda bisa 
 
 Atau jika anda menggunakan distro berbasis Debian seperti Ubuntu, coba gunakan apt-get:
 
-	$ apt-get install git-core
+	$ apt-get install git
 
 ### Menginstall Git pada Mac ###
 
@@ -176,9 +176,9 @@ Anda tidak harus menambahkan extras-nya, tetapi anda mungkin membutuhkan +svn ji
 
 ### Menginstall pada Sistem Operasi Windows ###
 
-Menginstall Git pada Windows sangatlah mudah. Cara termudah dapat anda peroleh dengan menggunakan msysGit. Cukup download file installernya dari halaman Google Code, lalu eksekusi.
+Menginstall Git pada Windows sangatlah mudah. Cara termudah dapat anda peroleh dengan menggunakan msysGit. Cukup download file installernya dari halaman GitHub, lalu eksekusi.
 
-	http://code.google.com/p/msysgit
+	http://msysgit.github.com/
 
 Setelah terinstall, anda akan memperoleh versi command-line (bersama dengan klien SSH yang praktis) dan versi GUI-nya.
 

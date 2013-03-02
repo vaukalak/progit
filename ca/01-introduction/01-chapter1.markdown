@@ -1,4 +1,4 @@
-# Començem #
+# Comencem #
 
 Aquest capítol tracta com iniciar-se amb Git. Començarem explicant alguns conceptes relatius a les eines de control de versions, seguirem amb com instal·lar Git al nostre ordinador i finalment com configurar-lo per a treballar-hi. Al final d'aquest capítol, hauríes d'entendre el perquè de Git, perquè és recomanable utilitzar-lo i amb les bases preparades per a començar.
 
@@ -157,7 +157,7 @@ If you want to install Git on Linux via a binary installer, you can generally do
 
 Or if you’re on a Debian-based distribution like Ubuntu, try apt-get:
 
-	$ apt-get install git-core
+	$ apt-get install git
 
 ### Installing on Mac ###
 
@@ -176,9 +176,9 @@ You don’t have to add all the extras, but you’ll probably want to include +s
 
 ### Installing on Windows ###
 
-Installing Git on Windows is very easy. The msysGit project has one of the easier installation procedures. Simply download the installer exe file from the Google Code page, and run it:
+Installing Git on Windows is very easy. The msysGit project has one of the easier installation procedures. Simply download the installer exe file from the GitHub page, and run it:
 
-	http://code.google.com/p/msysgit
+	http://msysgit.github.com/
 
 After it’s installed, you have both a command-line version (including an SSH client that will come in handy later) and the standard GUI.
 

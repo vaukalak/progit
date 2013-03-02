@@ -157,7 +157,7 @@ Si quieres instalar Git en Linux a través de un instalador binario, en general 
 
 O si estás en una distribución basada en Debian como Ubuntu, prueba con apt-get:
 
-	$ apt-get install git-core
+	$ apt-get install git
 
 ### Instalando en Mac ###
 
@@ -176,9 +176,9 @@ No necesitas añadir todos los extras, pero probablemente quieras incluir +svn e
 
 ### Instalando en Windows ###
 
-Instalar Git en Windows es muy fácil. El proyecto msysGit tiene uno de los procesos de instalación más sencillos. Simplemente descarga el archivo exe del instalador desde la página de Google Code, y ejecútalo:
+Instalar Git en Windows es muy fácil. El proyecto msysGit tiene uno de los procesos de instalación más sencillos. Simplemente descarga el archivo exe del instalador desde la página de GitHub, y ejecútalo:
 
-	http://code.google.com/p/msysgit
+	http://msysgit.github.com/
 
 Una vez instalado, tendrás tanto la versión de línea de comandos (incluido un cliente SSH que nos será útil más adelante) como la interfaz gráfica de usuario estándar.
 

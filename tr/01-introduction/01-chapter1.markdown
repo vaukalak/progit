@@ -159,7 +159,7 @@ Git'i Linux sisteminize paket kurucu yardımıyla kurmak istiyorsanız, bunu gen
 
 Ubuntu gibi Debian-tabanlı bir sistemdeyseniz, apt-get'i kullanabilirsiniz:
 
-	$ apt-get install git-core
+	$ apt-get install git
 
 ### Mac'te Kurulum ###
 
@@ -178,9 +178,9 @@ Bütün ek paketleri kurmanız şart değil, ama Git'i Subversion yazılım havu
 
 ### Windows'ta Kurulum ###
 
-Git'i Windows'da kurmak oldukça kolaydır. mysysGit projesi en basit kurulum yöntemlerinden birine sahip. Çalıştırılabilir kurulum dosyasını Google Code sayfasından indirip çalıştırmanız yeterli:
+Git'i Windows'da kurmak oldukça kolaydır. mysysGit projesi en basit kurulum yöntemlerinden birine sahip. Çalıştırılabilir kurulum dosyasını GitHub sayfasından indirip çalıştırmanız yeterli:
 
-	http://code.google.com/p/msysgit
+	http://msysgit.github.com/
 
 Kurulum tamamlandığında hem (daha sonra işe yarayacak olan SSH istemcisini de içeren) komut satırı nüshasına hem de standart kullanıcı arayüzüne sahip olacaksınız.
 

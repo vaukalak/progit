@@ -157,7 +157,7 @@ Git 的工作需要调用 curl，zlib，openssl，expat，libiconv 等库的代�
 
 在 Ubuntu 这类 Debian 体系的系统上，可以用 apt-get 安装：
 
-	$ apt-get install git-core
+	$ apt-get install git
 
 ### 在 Mac 上安装 ###
 
@@ -176,9 +176,9 @@ Insert 18333fig0107.png
 
 ### 在 Windows 上安装 ###
 
-在 Windows 上安装 Git 同样轻松，有个叫做 msysGit 的项目提供了安装包，可以到 Google Code 的页面上下载 exe 安装文件并运行：
+在 Windows 上安装 Git 同样轻松，有个叫做 msysGit 的项目提供了安装包，可以到 GitHub 的页面上下载 exe 安装文件并运行：
 
-	http://code.google.com/p/msysgit
+	http://msysgit.github.com/
 
 完成安装之后，就可以使用命令行的 `git` 工具（已经自带了 ssh 客户端）了，另外还有一个图形界面的 Git 项目管理工具。
 

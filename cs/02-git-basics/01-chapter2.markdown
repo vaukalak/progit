@@ -47,7 +47,7 @@ Nezapomeňte, že každý soubor ve vašem pracovním adresáři může být ve 
 Jakmile začnete soubory upravovat, Git je bude považovat za „změněné“, protože jste v nich od poslední revize provedli změny. Poté všechny tyto změněné soubory připravíte k zapsání a následně všechny připravené změny zapíšete. Cyklus může začít od začátku. Pracovní cyklus je znázorněn na obrázku 2-1.
 
 Insert 18333fig0201.png
-Obrázek 2-1. Cyklus stavů vašich souborů
+Figure 2-1. Cyklus stavů vašich souborů
 
 ### Kontrola stavu souborů ###
 
@@ -101,13 +101,13 @@ Nyní provedeme změny v souboru, který už byl sledován. Pokud změníte už 
 	#
 	#	new file:   README
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#	modified:   benchmarks.rb
 	#
 
-Soubor `benchmarks.rb` je uveden v části „Changed but not updated“ (Změněno, ale neaktualizováno). Znamená to, že soubor, který je sledován, byl v pracovním adresáři změněn, avšak ještě nebyl připraven k zapsání. Chcete-li ho připravit, spusťte příkaz `git add` (jedná se o univerzální příkaz – používá se k zahájení sledování nových souborů, k připravení souborů a k dalším operacím, jako např. k označení souborů, které kolidovaly při sloučení, za vyřešené). Spusťme nyní příkaz `git add` k připravení souboru `benchmarks.rb` k zapsání a následně znovu příkaz `git status`:
+Soubor `benchmarks.rb` je uveden v části „Changes not staged for commit“ (Změněno, ale neaktualizováno). Znamená to, že soubor, který je sledován, byl v pracovním adresáři změněn, avšak ještě nebyl připraven k zapsání. Chcete-li ho připravit, spusťte příkaz `git add` (jedná se o univerzální příkaz – používá se k zahájení sledování nových souborů, k připravení souborů a k dalším operacím, jako např. k označení souborů, které kolidovaly při sloučení, za vyřešené). Spusťme nyní příkaz `git add` k připravení souboru `benchmarks.rb` k zapsání a následně znovu příkaz `git status`:
 
 	$ git add benchmarks.rb
 	$ git status
@@ -130,13 +130,13 @@ Oba soubory jsou nyní připraveny k zapsání a budou zahrnuty do příští re
 	#	new file:   README
 	#	modified:   benchmarks.rb
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#	modified:   benchmarks.rb
 	#
 
-Co to má být? Soubor `benchmarks.rb` je nyní uveden jak v části připraveno k zapsání (Changes to be committed), tak v části nepřipraveno k zapsání (Changed but not updated). Jak je tohle možné? Věc se má tak, že Git po spuštění příkazu `git add` připraví soubor přesně tak, jak je. Pokud nyní revizi zapíšete, bude obsahovat soubor `benchmarks.rb` tak, jak vypadal když jste naposledy spustili příkaz `git add`, nikoli v té podobě, kterou měl v pracovním adresáři v okamžiku, když jste spustili příkaz `git commit`. Pokud upravíte soubor po provedení příkazu `git add`, je třeba spustit `git add` ještě jednou, aby byla připravena aktuální verze souboru:
+Co to má být? Soubor `benchmarks.rb` je nyní uveden jak v části připraveno k zapsání (Changes to be committed), tak v části nepřipraveno k zapsání (Changes not staged for commit). Jak je tohle možné? Věc se má tak, že Git po spuštění příkazu `git add` připraví soubor přesně tak, jak je. Pokud nyní revizi zapíšete, bude obsahovat soubor `benchmarks.rb` tak, jak vypadal když jste naposledy spustili příkaz `git add`, nikoli v té podobě, kterou měl v pracovním adresáři v okamžiku, když jste spustili příkaz `git commit`. Pokud upravíte soubor po provedení příkazu `git add`, je třeba spustit `git add` ještě jednou, aby byla připravena aktuální verze souboru:
 
 	$ git add benchmarks.rb
 	$ git status
@@ -160,10 +160,10 @@ První řádek říká systému Git, že má ignorovat všechny soubory končíc
 
 Toto jsou pravidla pro masky, které můžete použít v souboru `.gitignore`:
 
-*	Prázdné řádky nebo řádky začínající znakem # budou ignorovány.
+*	Prázdné řádky nebo řádky začínající znakem `#` budou ignorovány.
 *	Standardní masku souborů.
-*	Chcete-li označit adresář, můžete masku zakončit lomítkem (/).
-*	Pokud řádek začíná vykřičníkem (!), maska na něm je negována.
+*	Chcete-li označit adresář, můžete masku zakončit lomítkem (`/`).
+*	Pokud řádek začíná vykřičníkem (`!`), maska na něm je negována.
 
 Masky souborů jsou jako zjednodušené regulární výrazy, které používá shell. Hvězdička (`*`) označuje žádný nebo více znaků; `[abc]` označuje jakýkoli znak uvedený v závorkách (v tomto případě `a`, `b` nebo `c`); otazník (`?`) označuje jeden znak; znaky v závorkách oddělené pomlčkou (`[0-9]`) označují jakýkoli znak v daném rozmezí (v našem případě 0 až 9).
 
@@ -189,7 +189,7 @@ Je-li pro vaše potřeby příkaz `git status` příliš neurčitý – chcete p
 	#
 	#	new file:   README
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#	modified:   benchmarks.rb
@@ -244,7 +244,7 @@ V dalším příkladu ukážeme situaci, kdy jste připravili soubor `benchmarks
 	#
 	#	modified:   benchmarks.rb
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#
 	#	modified:   benchmarks.rb
 	#
@@ -325,7 +325,7 @@ Přestože může být oblast připravených změn opravdu užitečným nástroj
 	$ git status
 	# On branch master
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#
 	#	modified:   benchmarks.rb
 	#
@@ -339,13 +339,13 @@ Tímto způsobem není nutné provádět před zapsáním revize příkaz `git a
 
 Chcete-li odstranit soubor ze systému Git, musíte ho odstranit ze sledovaných souborů (přesněji řečeno odstranit z oblasti připravených změn) a zapsat revizi. Odstranění provedete příkazem `git rm`, který odstraní soubor zároveň z vašeho pracovního adresáře, a proto ho už příště neuvidíte mezi nesledovanými soubory.
 
-Pokud soubor jednoduše odstraníte z pracovního adresáře, zobrazí se ve výpisu `git status` v části „Changed but not updated“ (tedy nepřipraveno):
+Pokud soubor jednoduše odstraníte z pracovního adresáře, zobrazí se ve výpisu `git status` v části „Changes not staged for commit“ (tedy nepřipraveno):
 
 	$ rm grit.gemspec
 	$ git status
 	# On branch master
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add/rm <file>..." to update what will be committed)
 	#
 	#       deleted:    grit.gemspec
@@ -574,7 +574,7 @@ To je jen několik základních parametrů k formátování výstupu pro příka
 	--name-only	Za informacemi o revizi zobrazí seznam změněných souborů.
 	--name-status	Zobrazí seznam dotčených souborů spolu s informací přidáno/změněno/smazáno.
 	--abbrev-commit	Zobrazí pouze prvních několik znaků kontrolního součtu SHA-1 místo všech 40.
-	--relative-date	Zobrazí datum v relativním formátu (např. „2 weeks ago“, tj. před 2 týdny) místo formátu s úplným datem.
+	--relative-date	Zobrazí datum v relativním formátu (např. "2 weeks ago", tj. před 2 týdny) místo formátu s úplným datem.
 	--graph	Zobrazí vedle výstupu logu ASCII graf k historii větve a slučování.
 	--pretty	Zobrazí revize v alternativním formátu. Parametry příkazu jsou oneline, short, full, fuller a format (lze zadat vlastní formát).
 
@@ -619,7 +619,7 @@ Z téměř 20 000 revizí v historii zdrojového kódu Git zobrazí tento přík
 Chcete-li použít graficky výrazněji zpracovaný nástroj k procházení historie revizí, možná oceníte Tcl/Tk program nazvaný `gitk`, který je distribuován spolu se systémem Git. Gitk je v zásadě grafická verze příkazu `git log` a umožňuje téměř všechny možnosti filtrování jako `git log`. Pokud do příkazového řádku ve svém projektu zadáte příkaz `gitk`, otevře se okno podobné jako na obrázku 2-2.
 
 Insert 18333fig0202.png
-Obrázek 2-2. Graficky zpracovaná historie v nástroji „gitk“
+Figure 2-2. Graficky zpracovaná historie v nástroji „gitk“
 
 V horní polovině okna vidíte historii revizí, doplněnou názorným hierarchickým grafem. Prohlížeč rozdílů v dolní polovině okna zobrazuje změny provedené v každé revizi, na niž kliknete.
 
@@ -670,7 +670,7 @@ Přímo pod nadpisem „Changes to be committed“ (Změny k zapsání) se řík
 	#
 	#       modified:   README.txt
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#   (use "git checkout -- <file>..." to discard changes in working directory)
 	#
@@ -683,7 +683,7 @@ Příkaz je sice trochu zvláštní, ale funguje. Soubor `benchmarks.rb` má sta
 
 A co když zjistíte, že nechcete zachovat změny, které jste provedli v souboru `benchmarks.rb`? Jak je můžete snadno zrušit a vrátit soubor zpět do podoby při poslední revizi (nebo při prvním klonování nebo v jakémkoli okamžiku, kdy jste ho zaznamenali v pracovním adresáři)? Příkaz `git status` vám naštěstí řekne, co dělat. U posledního příkladu vypadá oblast připravených změn takto:
 
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#   (use "git checkout -- <file>..." to discard changes in working directory)
 	#
@@ -1115,9 +1115,8 @@ Tímto způsobem snadno zobrazíte poslední revizi:
 
 Chtělo by se tedy říci, že Git jednoduše nahradí nový příkaz jakýmkoli aliasem, který vytvoříte. Může se však stát, že budete chtít spustit externí příkaz, a ne dílčí příkaz Git. V takovém případě zadejte na začátek příkazu znak `!`. Tuto možnost využijete, pokud si píšete své vlastní nástroje, které fungují s repozitářem Git. Jako příklad můžeme uvést situaci, kdy nahradíte příkaz `git visual` aliasem `gitk`:
 
-	$ git config --global alias.visual "!gitk"
+	$ git config --global alias.visual '!gitk'
 
 ## Shrnutí ##
 
 V tomto okamžiku už tedy umíte v systému Git provádět všechny základní lokální operace: vytvářet a klonovat repozitáře, provádět změny, připravit je k zapsání i zapisovat nebo třeba zobrazit historii všech změn, které prošly repozitářem. V další kapitole se podíváme na exkluzivní funkci systému Git – na model větvení.
-

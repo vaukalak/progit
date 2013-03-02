@@ -47,7 +47,7 @@ Ricorda che ogni file nella tua directory di lavoro è in una dei due stati segu
 Quando modifichi i file, Git li vede come cambiati, perché li hai modificati rispetto all'ultimo commit. Parcheggi questi file e poi esegui il commit di tutti i cambiamenti presenti nell'area di stage, ed il ciclo si ripete. Questo ciclo di vita è illustrato nella Figura 2-1.
 
 Insert 18333fig0201.png
-Figure 2-1. Il ciclo di vita dello stato dei tuoi file.
+Figura 2-1. Il ciclo di vita dello stato dei tuoi file.
 
 ### Controlla lo stato dei tuoi file ###
 
@@ -101,13 +101,13 @@ Ora modifichiamo un file che è già stato tracciato. Se modifichi un file prece
 	#
 	#	new file:   README
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#	modified:   benchmarks.rb
 	#
 
-Il file benchmarks.rb appare sotto la sezione chiamata "Changed but not updated" — che significa che un file che è tracciato è stato modificato nella directory di lavoro ma non ancora messo in stage (parcheggiato). Per parcheggiarlo, avvia il comando `git add` (è un comando multifunzione — è usato per iniziare a tracciare nuovi file, per parcheggiare i file e per fare altre cose come eseguire la fusione dei file che entrano in conflitto dopo che sono stati risolti). Avvia dunque `git add` per parcheggiare ora il file benchmarks.rb, e avvia nuovamente `git status`:
+Il file benchmarks.rb appare sotto la sezione chiamata "Changes not staged for commit" — che significa che un file che è tracciato è stato modificato nella directory di lavoro ma non ancora messo in stage (parcheggiato). Per parcheggiarlo, avvia il comando `git add` (è un comando multifunzione — è usato per iniziare a tracciare nuovi file, per parcheggiare i file e per fare altre cose come eseguire la fusione dei file che entrano in conflitto dopo che sono stati risolti). Avvia dunque `git add` per parcheggiare ora il file benchmarks.rb, e avvia nuovamente `git status`:
 
 	$ git add benchmarks.rb
 	$ git status
@@ -130,7 +130,7 @@ Entrambi i file sono parcheggiati ed entreranno nel prossimo commit. A questo pu
 	#	new file:   README
 	#	modified:   benchmarks.rb
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#	modified:   benchmarks.rb
@@ -189,7 +189,7 @@ Nuovamente ti chiedo di modificare e parcheggiare il file README e poi modificar
 	#
 	#	new file:   README
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#	modified:   benchmarks.rb
@@ -244,7 +244,7 @@ Per un altro esempio, se parcheggi il file benchmarks.rb e lo modifichi, puoi us
 	#
 	#	modified:   benchmarks.rb
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#
 	#	modified:   benchmarks.rb
 	#
@@ -325,7 +325,7 @@ Anche se può essere estremamente utile per amministrare i commit esattamente co
 	$ git status
 	# On branch master
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#
 	#	modified:   benchmarks.rb
 	#
@@ -339,13 +339,13 @@ Nota come non hai bisogno, in questo caso, di lanciare `git add` sul file benchm
 
 Per rimuovere un file con Git, hai bisogno di rimuoverlo dai file tracciati (più precisamente,  rimuoverlo dall'area di staging) e poi di fare il commit. Il comando `git rm` fa questo ed inoltre rimuove il file dalla tua directory di lavoro così non lo vedrai come un file non tracciato la prossima volta.
 
-Se semplicemente rimuovi il file dalla directory di lavoro, sarà visto sotto l'area "Changed but not updated" (cioè, non parcheggiato) dell'output `git status`:
+Se semplicemente rimuovi il file dalla directory di lavoro, sarà visto sotto l'area "Changes not staged for commit" (cioè, non parcheggiato) dell'output `git status`:
 
 	$ rm grit.gemspec
 	$ git status
 	# On branch master
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add/rm <file>..." to update what will be committed)
 	#
 	#       deleted:    grit.gemspec
@@ -619,7 +619,7 @@ Ci sono circa 20,000 commit nella storia del codice sorgente di git, questo coma
 Se vuoi usare uno strumento più grafico per visualizzare la storia dei tuoi commit, puoi vedere un programma in Tck/Tk chiamato gitk che è distribuito con Git. Gitk è fondamentalmente uno strumento visuale come `git log`, e accetta circa tutte le opzioni di filtro che `git log` ha. Se digiti gitk dalla riga di comando del tuo progetto, dovresti vedere qualcosa di simile alla Figura 2-2.
 
 Insert 18333fig0202.png
-Figure 2-2. Il visualizzatore della storia gitk.
+Figura 2-2. Il visualizzatore della storia gitk.
 
 Puoi vedere la storia dei commit nella metà alta della finestra con un grafico genealogico. La finestra di diff nella metà inferiore mostra i cambiamenti introdotti ad ogni commit che selezioni.
 
@@ -670,7 +670,7 @@ Ora il testo sotto “Changes to be committed”, dice di usare `git reset HEAD 
 	#
 	#       modified:   README.txt
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#   (use "git checkout -- <file>..." to discard changes in working directory)
 	#
@@ -683,7 +683,7 @@ Il comando è un po' strano, ma funziona. Il file benchmarks.rb è modificato ma
 
 Come fare se hai realizzato che non vuoi più tenere le modifiche che hai fatto al file benchmarks.rv? Come puoi annullarle facilmente — ritornare a come era al tuo ultimo commit (o alla clonazione iniziale, o come lo avevi nella tua directory di lavoro)? Fortunatamente, `git status` ci dice come farlo. Nell'ultimo output di esempio, l'area di unstage (file non parcheggiati) assomiglia a:
 
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#   (use "git checkout -- <file>..." to discard changes in working directory)
 	#
@@ -1114,7 +1114,7 @@ In questo modo puoi vedere l'ultimo commit facilmente:
 
 Git semplicemente sostituisce il nuovo comando con quello che corrisponde nell'alias. Magari, vuoi avviare un comando esterno, invece dei sotto comandi Git. In questo caso, devi avviare il comando con il carattere "!". Questo è utile se stai scrivendo i tuoi strumenti di lavoro con un repository Git. Per esempio creiamo un alias `git visual` per lanciare `gitk`:
 
-	$ git config --global alias.visual "!gitk"
+	$ git config --global alias.visual '!gitk'
 
 ## Conclusione ##
 

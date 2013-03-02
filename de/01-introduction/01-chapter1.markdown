@@ -157,7 +157,7 @@ Wenn Du Git unter Linux mit einem Installationsprogramm installieren willst, kan
 
 Auf einem Debian-basierten System wie Ubuntu steht dir apt-get zur Verfügung:
 
-	$ apt-get install git-core
+	$ apt-get install git
 
 ### Installation unter Mac OS X ###
 
@@ -176,9 +176,9 @@ Du brauchst die optionalen Features natürlich nicht mit zu installieren, aber e
 
 ### Installation unter Windows ###
 
-Das msysGit Projekt macht die Installation von Git unter Windows sehr einfach. Lade einfach das Installationsprogramm für Windows von der Google Code Webseite herunter und führe es aus:
+Das msysGit Projekt macht die Installation von Git unter Windows sehr einfach. Lade einfach das Installationsprogramm für Windows von der GitHub Webseite herunter und führe es aus:
 
-	http://code.google.com/p/msysgit
+	http://msysgit.github.com/
 
 Danach hast Du sowohl eine Kommandozeilenversion (inklusive eines SSH Clients, der sich später noch als nützlich erweisen wird) als auch die Standard GUI installiert.
 

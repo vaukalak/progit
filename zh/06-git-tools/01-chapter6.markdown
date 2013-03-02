@@ -97,7 +97,7 @@ Git 可以为你的 SHA-1 值生成出简短且唯一的缩写。如果你传递
 
 	$ git show HEAD@{5}
 
-你也可以使用这个语法来查看一定时间前分支指向哪里。例如，想看你的 `master` 分支昨天在哪，你可以输入
+你也可以使用这个语法来查看某个分支在一定时间前的位置。例如，想看你的 `master` 分支昨天在哪，你可以输入
 
 	$ git show master@{yesterday}
 
@@ -122,7 +122,7 @@ Git 可以为你的 SHA-1 值生成出简短且唯一的缩写。如果你传递
 
 	    Merge commit 'phedders/rdocs'
 
-需要注意的是，日志引用信息只存在于本地——这是一个你在仓库里做过什么的日志。其他人的仓库拷贝里的引用和你的相同；而你新克隆一个仓库的时候，引用日志是空的，因为你在仓库里还没有操作。只有你克隆了一个项目至少两个月，`git show HEAD@{2.months.ago}` 才会有用——如果你是五分钟前克隆的仓库，将不会有结果返回。
+需要注意的是，引用日志信息只存在于本地——这是一个记录你在你自己的仓库里做过什么的日志。其他人拷贝的仓库里的引用日志不会和你的相同；而你新克隆一个仓库的时候，引用日志是空的，因为你在仓库里还没有操作。`git show HEAD@{2.months.ago}` 这条命令只有在你克隆了一个项目至少两个月时才会有用——如果你是五分钟前克隆的仓库，那么它将不会有结果返回。
 
 ### 祖先引用 ###
 
@@ -425,7 +425,7 @@ simplegit.rb的状态非常有意思。它显示有几行被暂存了，有几�
 	#
 	#      modified:   index.html
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   lib/simplegit.rb
@@ -456,7 +456,7 @@ simplegit.rb的状态非常有意思。它显示有几行被暂存了，有几�
 
 	$ git stash apply
 	# On branch master
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   index.html
@@ -474,7 +474,7 @@ simplegit.rb的状态非常有意思。它显示有几行被暂存了，有几�
 	#
 	#      modified:   index.html
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   lib/simplegit.rb
@@ -521,7 +521,7 @@ apply 选项只尝试应用储藏的工作——储藏的内容仍然在栈上�
 	#
 	#      modified:   index.html
 	#
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#
 	#      modified:   lib/simplegit.rb
@@ -950,7 +950,7 @@ Git 通过子模块处理这个问题。子模块允许你将一个 Git 仓库�
 	 1 files changed, 1 insertions(+), 1 deletions(-)
 	[master*]$ git status
 	# On branch master
-	# Changed but not updated:
+	# Changes not staged for commit:
 	#   (use "git add <file>..." to update what will be committed)
 	#   (use "git checkout -- <file>..." to discard changes in working directory)
 	#
@@ -968,7 +968,7 @@ Git 通过子模块处理这个问题。子模块允许你将一个 Git 仓库�
 	-Subproject commit 6c5e70b984a60b3cecd395edd5b48a7575bf58e0
 	+Subproject commit 08d709f78b8c5b0fbeb7821e37fa53e69afcf433
 
-事情就是这样，因为你所拥有的子模块的指针并对应于子模块目录的真实状态。为了修复这一点，你必须再次运行`git submodule update`：
+事情就是这样，因为你所拥有的指向子模块的指针和子模块目录的真实状态并不匹配。为了修复这一点，你必须再次运行`git submodule update`：
 
 	$ git submodule update
 	remote: Counting objects: 5, done.

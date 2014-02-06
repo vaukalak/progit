@@ -2,7 +2,7 @@
 
 Цяпер, як вы наладзілі аддаленнае Git сховішча, якое з'яўляецца месцам, дзе распрацоўнікі могуць дзяліцца сваім кодам, а таксама пазнаёміліся з асноўнымі камандамі для лакальнага працоўнага працэса, вы пабачыце як выкарыстоўваць некаторыя каманды для размеркаваных працоўных працэсаў, якія вам прапануе Git.
 
-In this chapter, you’ll see how to work with Git in a distributed environment as a contributor and an integrator. That is, you’ll learn how to contribute code successfully to a project and make it as easy on you and the project maintainer as possible, and also how to maintain a project successfully with a number of developers contributing.
+У гэтай главе вы пабачыце як працаваць з Git у размеркаванай сістэме, як шэраговы ўдзельнік і як інтэграцыйны адміністратар. То бок вы навучыцеся паспяхова ўносіць свой код у праэкт, робячы гэта як мага больш зручным для вас і для ўладальніка праэкта чынам. Таксама вы навучыцеся паспяхова падтрымліваць праэкты, у якіх удзельнічае мноства чалавек.
 
 ## Distributed Workflows ##
 

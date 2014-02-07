@@ -4,9 +4,9 @@
 
 У гэтай главе вы пабачыце як працаваць з Git у размеркаванай сістэме, як шэраговы ўдзельнік і як інтэграцыйны адміністратар. То бок вы навучыцеся паспяхова ўносіць свой код у праэкт, робячы гэта як мага больш зручным для вас і для ўладальніка праэкта чынам. Таксама вы навучыцеся паспяхова падтрымліваць праэкты, у якіх удзельнічае мноства чалавек.
 
-## Distributed Workflows ##
+## Размеркаваныя працоўныя працэсы ##
 
-Unlike Centralized Version Control Systems (CVCSs), the distributed nature of Git allows you to be far more flexible in how developers collaborate on projects. In centralized systems, every developer is a node working more or less equally on a central hub. In Git, however, every developer is potentially both a node and a hub — that is, every developer can both contribute code to other repositories and maintain a public repository on which others can base their work and which they can contribute to. This opens a vast range of workflow possibilities for your project and/or your team, so I’ll cover a few common paradigms that take advantage of this flexibility. I’ll go over the strengths and possible weaknesses of each design; you can choose a single one to use, or you can mix and match features from each.
+У адрозненьні ад Цэнтралізаваных Сістэм Кантроля Версій (Centralized Version Control Systems - CVCSs), размеркаваная натура Git дазваляе вам быць больш гнуткім у тым, як распрацоўнікі будуць супрацоўнічаць у праэктце. У цэнтралізаваных сітэмах, кожны распрацоўнкік гэта вузел сеціва які працуе больш-менш аднолькава на цэнтральным хабе. Тым часам у Git, кожны распрацоўнік з'яўляецца патэнцыйна вузлом і хабам. То бок кожны распрацоўнік можа як уносіць код у іншыя сховішчы , так і утрымліваць публічнае сховішча, на базе якога працуюць іншыя распрацоўшчыкі, і ў які яны ўносяць свае змены. Гэта дае вашай камандзе вялікі выбар працоўных працэсаў для вашых праэктаў. Мы разгялдзім некалькі парадыгмаў, якія карыстаюцца гэтай гнуткасьцю. Будуць разгледжаны моцныя бакі і магчымыя недахопы кожнага падыходаў; вы можаце выбраць адзін з іх, або вы можаце сумясціць магчымасці розных падыходаў.
 
 ### Centralized Workflow ###
 

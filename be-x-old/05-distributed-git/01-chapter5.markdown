@@ -8,17 +8,17 @@
 
 У адрозненьні ад Цэнтралізаваных Сістэм Кантроля Версій (Centralized Version Control Systems - CVCSs), размеркаваная натура Git дазваляе вам быць больш гнуткім у тым, як распрацоўнікі будуць супрацоўнічаць у праэктце. У цэнтралізаваных сітэмах, кожны распрацоўнкік гэта вузел сеціва які працуе больш-менш аднолькава на цэнтральным хабе. Тым часам у Git, кожны распрацоўнік з'яўляецца патэнцыйна вузлом і хабам. То бок кожны распрацоўнік можа як уносіць код у іншыя сховішчы , так і утрымліваць публічнае сховішча, на базе якога працуюць іншыя распрацоўшчыкі, і ў які яны ўносяць свае змены. Гэта дае вашай камандзе вялікі выбар працоўных працэсаў для вашых праэктаў. Мы разгялдзім некалькі парадыгмаў, якія карыстаюцца гэтай гнуткасьцю. Будуць разгледжаны моцныя бакі і магчымыя недахопы кожнага падыходаў; вы можаце выбраць адзін з іх, або вы можаце сумясціць магчымасці розных падыходаў.
 
-### Centralized Workflow ###
+### Цэнтралізаваны працоўны працэс ###
 
-In centralized systems, there is generally a single collaboration model—the centralized workflow. One central hub, or repository, can accept code, and everyone synchronizes their work to it. A number of developers are nodes — consumers of that hub — and synchronize to that one place (see Figure 5-1).
+У цэнтралізаваных сістэмах, звычайна існуе толькі адзін спосаб супрацоўніцтва — цэнтралізаваны працоўны працэс. Адзін цэнтральны хаб, адно сховішча, можа прымаць код, і кожны сінхранізуе сваю працу з гэтым хабам. Нейкая колькасць распрацоўнікаў з'яўляюцца вузламі — кліентамі гэтага хаба — і сінхранізуюцца з ім адным (гл. Малюнак 5-1).
 
 Insert 18333fig0501.png
-Figure 5-1. Centralized workflow.
+Малюнак 5-1. Цэнтралізаваны працоўны працэс.
 
-This means that if two developers clone from the hub and both make changes, the first developer to push their changes back up can do so with no problems. The second developer must merge in the first one’s work before pushing changes up, so as not to overwrite the first developer’s changes. This concept is true in Git as it is in Subversion (or any CVCS), and this model works perfectly in Git.
+Гэта азначае што калі 2 распрацоўнкі выконваюць клон з цэнтральнага хаба і абодва робяць змены, першы распрацоўнік які адправіць свае змены на хаб, не будзе мець праблем. Другі ж, павінен будзе злучыць сваю працу з працай першага, перад тым як адправіць змены на хаб, дзеля таго каб не перазапісаць змены першага распрацоўніка. Гэта адбываецца ў Git таксама як і ў Subversion (або любой іншай CVCS), і гэтая мадэль цудоўна працуе ў Git.
 
-If you have a small team or are already comfortable with a centralized workflow in your company or team, you can easily continue using that workflow with Git. Simply set up a single repository, and give everyone on your team push access; Git won’t let users overwrite each other. If one developer clones, makes changes, and then tries to push their changes while another developer has pushed in the meantime, the server will reject that developer’s changes. They will be told that they’re trying to push non-fast-forward changes and that they won’t be able to do so until they fetch and merge.
-This workflow is attractive to a lot of people because it’s a paradigm that many are familiar and comfortable with.
+Калі ў вас невялікая каманда, або вы ўжо прывыклі да цэнтралізаванага працоўнага працэса ў вашай кампаніі або камандзе, вы можаце з лёгкасьцю працягваць выкарыстоўваць гэты ж працэс і з Git. Проста стварыце адно сховішча, і дайце кожнаму ў вашай камандзе правы на адпраўку; Git не дазволіць карыстальнікам перазапісаць працу адзін аднаго. Калі распрацоўнік зкланіруе сховішча, зробіць змены, і потым паспрабуе адправіць свае змены пасля таго як іншы распрацоўнік ужо адправіў свае змены, сервер адмовіць прымаць гэтыя змены. Яму будзе сказана, што ён імкнецца адправіць змены, для якіх немагчыма выканаць перамотку (fast-forward), і дзеля паспяховай адпраўкі сваіх зменаў, яму спачатку трэба забраць дадзеныя з сервера і злучыць са сваімі.
+Такі працэс прывабны для мноства людзей, таму што гэта тая парадыгма з якой многія знаёмыя і з якой многім звыкла працаваць.
 
 ### Integration-Manager Workflow ###
 

@@ -20,21 +20,21 @@ Insert 18333fig0501.png
 Калі ў вас невялікая каманда, або вы ўжо прывыклі да цэнтралізаванага працоўнага працэса ў вашай кампаніі або камандзе, вы можаце з лёгкасьцю працягваць выкарыстоўваць гэты ж працэс і з Git. Проста стварыце адно сховішча, і дайце кожнаму ў вашай камандзе правы на адпраўку; Git не дазволіць карыстальнікам перазапісаць працу адзін аднаго. Калі распрацоўнік зкланіруе сховішча, зробіць змены, і потым паспрабуе адправіць свае змены пасля таго як іншы распрацоўнік ужо адправіў свае змены, сервер адмовіць прымаць гэтыя змены. Яму будзе сказана, што ён імкнецца адправіць змены, для якіх немагчыма выканаць перамотку (fast-forward), і дзеля паспяховай адпраўкі сваіх зменаў, яму спачатку трэба забраць дадзеныя з сервера і злучыць са сваімі.
 Такі працэс прывабны для мноства людзей, таму што гэта тая парадыгма з якой многія знаёмыя і з якой многім звыкла працаваць.
 
-### Integration-Manager Workflow ###
+### Праца з інтэграцыйным мэнэджэрам ###
 
-Because Git allows you to have multiple remote repositories, it’s possible to have a workflow where each developer has write access to their own public repository and read access to everyone else’s. This scenario often includes a canonical repository that represents the "official" project. To contribute to that project, you create your own public clone of the project and push your changes to it. Then, you can send a request to the maintainer of the main project to pull in your changes. They can add your repository as a remote, test your changes locally, merge them into their branch, and push back to their repository. The process works as follow (see Figure 5-2):
+Так як Git дазваляе вам мець некалькі аддаленых сховішчаў, магчыма паставіць працоўны працэс у якім кожны распрацоўшчык мае правы на запіс у сваё публічнае сховішча, а таксама правы на чытаньне з публічных сховішчаў іншых распрацоўшчыкаў. Такі сцэнар часта прадугледжвае наяўнасць кананічнага сховішча які прадстаўляе "афіцыйны" праэкт. Каб паўдзельнічаць у гэтым праэкце, вы ствараеце сваё публічнае сховішча у якое адпраўляеце свае змены. Пасля, вы можаце адправіць запыт кіраўніку праэкта, каб ён забраў вашы змены. Ён можа дадаць ваша сховішча як аддаленае, праверыць вашы змены лакальна, прымяніць іх у сваёй галіне, і адправіць у сваё сховішча. Працэс выглядае наступным чынам (гл. Малюнак 5-2):
 
-1. The project maintainer pushes to their public repository.
-2. A contributor clones that repository and makes changes.
-3. The contributor pushes to their own public copy.
-4. The contributor sends the maintainer an e-mail asking them to pull changes.
-5. The maintainer adds the contributor’s repo as a remote and merges locally.
-6. The maintainer pushes merged changes to the main repository.
+1. Кіраўнік праэкта захоўвае праэкт у сваё публічнае сховішча.
+2. Удзельнік робіць форк праэкта і ўносіць свае змены.
+3. Удзельнік адпраўляе змены у сваё ўласнае публічнае сховішча.
+4. Удзельнік адпраўляе e-mail кіраўніку праэкта, прапаноўваючы яму забраць змены.
+5. Кіраўнік праэкта дадае сховішча ўдзельніка як аддаленае і злівае змены лакальна.
+6. Кіраўнік праэкта дасылае злітыя змены ў галоўнае сховішча.
 
 Insert 18333fig0502.png
-Figure 5-2. Integration-manager workflow.
+Малюнак 5-2. Працоўны працэс з інтэграцыйным мэнэджэрам.
 
-This is a very common workflow with sites like GitHub, where it’s easy to fork a project and push your changes into your fork for everyone to see. One of the main advantages of this approach is that you can continue to work, and the maintainer of the main repository can pull in your changes at any time. Contributors don’t have to wait for the project to incorporate their changes — each party can work at their own pace.
+Гэта вельмі звыклы працоўны працэс на сайтах кшталту GitHub, дзе магчыма зрабіць форк праэкта і даслаць вашы змены ў публічнае сховішча вашага форка, каб усе маглі бачыць. Адна з галоўных перавагаў гэтага падыхода ў тым, што вы можаце працягваць працаваць, а ўладальнік галоўнага сховішча можа забраць вашыя змены ў любы момант. Удзельнікі не павінны чакаць каб праэкт забраў іх змены — усе могуць працаваць у сваім тэмпе.
 
 ### Dictator and Lieutenants Workflow ###
 

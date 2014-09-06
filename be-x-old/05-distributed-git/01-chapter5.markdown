@@ -36,17 +36,17 @@ Insert 18333fig0502.png
 
 Гэта вельмі звыклы працоўны працэс на сайтах кшталту GitHub, дзе магчыма зрабіць форк праэкта і даслаць вашы змены ў публічнае сховішча вашага форка, каб усе маглі бачыць. Адна з галоўных перавагаў гэтага падыхода ў тым, што вы можаце працягваць працаваць, а ўладальнік галоўнага сховішча можа забраць вашыя змены ў любы момант. Удзельнікі не павінны чакаць каб праэкт забраў іх змены — усе могуць працаваць у сваім тэмпе.
 
-### Dictator and Lieutenants Workflow ###
+### Працоўны працэс з Дыктарам і Лейтэнантамі ###
 
-This is a variant of a multiple-repository workflow. It’s generally used by huge projects with hundreds of collaborators; one famous example is the Linux kernel. Various integration managers are in charge of certain parts of the repository; they’re called lieutenants. All the lieutenants have one integration manager known as the benevolent dictator. The benevolent dictator’s repository serves as the reference repository from which all the collaborators need to pull. The process works like this (see Figure 5-3):
+Гэта варыянт працоўнага працэса для праэкта з мноствам рэпазіторыяў. З большага выкарыстоўваецца ў велізарных праэктах з сотнямі ўдзельнікаў; Ядро Linux - адзін з яркіх прыкладаў. Розныя інтэграцыйныя мэнэджэры адказваюць за пэўныя часткі сховішча; іх называюць лейтэнантамі. Ва ўсіх лейтэнантаў ёсць толькі адзін інтэграцыйны мэнэджэр, якога называюць дабразычлівым дыктатарам. Сховішча дабразычлівага дыктатара з'яўляецца эталонным сховішчам, з якога іншыя ўдзельнікі маюць рабіць апдэйт. Працэс працуе наступным чынам (гл Малюнак 5-3):
 
-1. Regular developers work on their topic branch and rebase their work on top of master. The master branch is that of the dictator.
-2. Lieutenants merge the developers’ topic branches into their master branch.
-3. The dictator merges the lieutenants’ master branches into the dictator’s master branch.
-4. The dictator pushes their master to the reference repository so the other developers can rebase on it.
+1. Звычайныя распрацоўнікі працуюць у сваіх тэматычных галінах і перабазуюць сваю працу на вяршыню галіны master. Галіна master знаходзіцца ў Дыктатара.
+2. Лейтэнанты злучаюць галіны распрацоўнікаў сваімі master галінамі.
+3. Дыктатар злучае master галіны лейтэнантаў з master галінай дыктатара.
+4. Дыктатар адпраўляе адпраўлея сваю master галіну ў эталоннае сховішча, каб іншыя распрацоўнікі маглі перабазавацца на яе.
 
 Insert 18333fig0503.png
-Figure 5-3. Benevolent dictator workflow.
+Малюнак 5-3. Працоўны працэс з Дабразычлівым Дыктатарам.
 
 This kind of workflow isn’t common but can be useful in very big projects or in highly hierarchical environments, as it allows the project leader (the dictator) to delegate much of the work and collect large subsets of code at multiple points before integrating them.
 
